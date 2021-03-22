@@ -219,6 +219,7 @@ Rank tells us several elementary properties of braids:
 These facts contain generally useful algebraic information, but of particular
 interest for us is the relationship between slice genus, ribbon genus, and rank.
 Rank can sometimes tell us about these otherwise difficult to compute invariants.
+We will give a brief of this relationship here.
 
 \begin{definition}
     A knot is a smooth embedding of the circle $S^{1}$ into the 3-sphere $S^{3}$.
@@ -287,17 +288,15 @@ Therefore
     \label{eq:slice-and-ribbon-genus}
     g_{s}(K) \leq g_{r}(K)
 \end{equation}
+
 % TODO: what to do about closure of braid
-In section 5 of \cite{rudolph-braided-surfaces} Rudolph relates rank
-to ribbon and slice genus in the following way.
-\begin{proposition}
+\begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces})
     Anytime $K$ is represented by the closure of a braid $\widehat{x}$ 
     and $x \in B_{n}$ has a band presentation: $(\alpha_{1} \delta_{1} \alpha_{1}^{-1}, \ldots, \alpha_{k} \delta_{k} \alpha_{k}^{-1})$,
     then a ribbon surface can be constructed for $K$ by reading off the bands,
     whose Euler characteristic $\chi$ depends only
     on the number of bands $k$.
-    Specifically: $\chi = n - k$.
-    (See section 2 of \cite{on-braided-surfaces}.)
+    Specifically: $\chi = n - k$. 
 \end{proposition}
 
 The relationship between Euler the characteristic $\chi$
@@ -1210,14 +1209,12 @@ This fact can be used as a fast obstruction
 to being the identity, and suggests an algorithm,
 try to write a word in reduced form.
 
-% TODO: word that better
-
 \begin{proposition}
     \label{ordering-braids}
-    For braids $a, b$ define $a < b$ 
+    For braids $x, y$ we say $x < y$ 
     whenever $b^{-1}a$ has a reduced form such that the 
     generator of lowest index occurs only positively.
-    Then $<$ is a total ordering for each braid group $B_{n}$.
+    Then the binary function $<$ is a total ordering for each braid group $B_{n}$.
 \end{proposition}
 
 \begin{definition}
@@ -2138,7 +2135,6 @@ This includes several knots for which this is known to be difficult.
 
 \subsection{Knots with equal ribbon genus and slice genus}
 
-% TODO: double check these references.
 Recall our brief overview of the relationship between
 the slice genus and rank found in Section \ref{sec:motivation}.
 From the slice genus and (\ref{eq:rank-and-ribbon-genus})
@@ -2284,7 +2280,7 @@ efficient lower and upper bounds, which we have good estimates for from Chapters
           presentation is equal to $[w]$.
           If one of them is, then terminate. The result is affirmative.
 
-      \item Otherwise, increase $l$ and go back to (ii).
+      \item Otherwise, increment $l$ and go back to (ii).
 \end{enumerate}
 
 \end{algorithm}
@@ -2603,9 +2599,9 @@ as in the following algorithm:
     \textbf{Output:} A set of all band presentations for $x$ within the conjugate length limit. 
 
     % TODO: decision problem
-    % increment l?
     \begin{enumerate}
-        \item Generate all band words with maximum conjugate length $l_{0}$.
+        \item Initialize $l = l_{0}$
+        \item Generate all band words with maximum conjugate length $l$.
             Place each band word $\beta$ in a set based on it's image: $C_{\phi([\beta])}$.
             These sets are referred to as \textit{band buckets}.
 
@@ -2616,11 +2612,11 @@ as in the following algorithm:
             This is the set $T_{k} = \{ (b_{1}, \ldots, b_{k}) \in \beta_{\phi} \colon b_{1} \cdots b_{k} = \phi(x) \}$.
 
         \item For each template $(b_{1}, \ldots, b_{k})$
-            find every $(w_{1}, \ldots, w_{k}) \in C_{b_{1}} \times \cdots \times C_{b_{k}}$,
-            such that $w_{1} \cdots w_{k} = x$.
-            These are band presentations for $x$ of $k$ bands.
+            consider every $(w_{1}, \ldots, w_{k}) \in C_{b_{1}} \times \cdots \times C_{b_{k}}$.
+            If $w_{1} \cdots w_{k} = x$
+            then terminate. The result is affirmative.
 
-        \item Terminate. The result is the list of band presentations found.
+        \item Increment $l$ and go back to (ii).
     \end{enumerate}
 \end{algorithm}
 
