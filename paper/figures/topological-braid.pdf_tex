@@ -56,5 +56,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=1]{topological-braid.pdf}}%
     \put(-0.00440278,0.71962987){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$D^{2} \times I$\end{tabular}}}}%
     \put(0.90159213,0.71769821){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$I$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{topological-braid.pdf}}%
+    \put(0.84392935,0.47042902){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\pi_{I}$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
