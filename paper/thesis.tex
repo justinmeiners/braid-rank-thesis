@@ -2349,8 +2349,7 @@ probably require longer bands to describe as well.
     This algorithm decides $BA(n, k)$ for all braids.
 \end{proof}
 
-% TODO: punctuation
-\subsection{What if $f$ is not computable?\nopunct}
+\subsection{Why $f$ may not computable}
 
 Consider the following bound on $L(x, k)$.
 Given a braid word $w \in F_{n-1}$ 
@@ -2414,38 +2413,47 @@ So
     This follows directly from Theorem \ref{th:decidable} and the fact that $f(W(x), k)$ is a function of $x$ and $k$.
 \end{proof}
 
-If the bounds from this corollary turn out to reasonably optimistic we can classify it further.
+If the bounds $f$ from this corollary turn out to reasonably optimistic we can classify it further.
 
 \begin{theorem}
     Fix $k \in \Z_{\geq 0}$.
     Suppose there exists a polynomial $p$ such that 
-    $L(x, k) \leq p(W(x))$ for all braids $x \in B_{n}$.
+    $L(x, k) \leq p(\Lambda(x))$ for all braids $x \in B_{n}$.
     Then the set $BA(n, k)$ is in $\textbf{NP}$ (the class of decision problems that can be verified in polynomial time).
 \end{theorem}
 
 \begin{proof}
-    Let $R \colon F_{n-1} \times F_{n-1} \rightarrow \{ 0, 1\}$ be defined
-    so  $R(w, v) = 1$ iff $[w] = [v]$ and $v$ is a band presentation.
+    Let $R \colon W_{n-1} \times W_{n-1} \rightarrow \{ 0, 1\}$ be defined
+    so  $R(w, v) = 1$ iff $[fr(w)] = [fr(v)]$ and $v$ is a concatenation of $k$ bands.
     The equality can be decided in polynomial time of the lengths of $w$ and $v$
-    due to Lawrence-Krammer (Proposition \ref{prop:lk-runtime}).
-    Bands can be recognized with a greedy scanning algorithm, but we could also require $v$ to 
+    since free redution is linear and
+    braid equality test is polynomial due to Lawrence-Krammer (Proposition \ref{prop:lk-runtime}).
+    Bands in $v$ can be recognized
+    with a greedy scanning algorithm, but we could also require $v$ to 
     have a separator symbol between bands for computation purposes.
 
-    Let $q(m) = 2kp(m) + k$ which is still a polynomial.
-    A band presentation of $k$ bands for $w$ is a witness that $w \in BA(n, k)$.
-    We must show:
+    Let $w \in F_{n-1}$ where $[w] = x$.
+    Let $q$ be a monotonic polynomial where $q(m) \geq 2kp(m) + k$.
+    We will show:
     \[
-        w \in BA(n, k) \Leftrightarrow \text{ exists band presentation $v$ where $R(w, v) = 1$ and $|v| \leq q(|w|)$}.
+        [w] \in BA(n, k) \Leftrightarrow \text{ exists a string $v \in W_{n}$ where $R(w, v) = 1$ and $|v| \leq q(|w|)$}.
     \]
-    Assume $v$ exists. Then $v$ is a band presentation for $w \in BA(n, k)$. 
+    Assume $R(w, v) = 1$ for some string $v$ and $|v| \leq q(\Lambda(w))$.
+    Then $|v| \leq q(|w|)$ because $\Lambda(w) \leq |w|$.
+    Then $v$ gives a band presentation of length $k$ for $w$ so $w \in BA(n, k)$. 
 
-    Assume $w \in BA(n, k)$.
-    Then there exists  a band presentation  that is a potential witness
-    $v = \prod_{i=1}^{k} \alpha_{i} \sigma_{j_{i}}^{\epsilon^{i}} \alpha_{i}^{-1}$
-    where $|\alpha_{i}| \leq L(x, k)$. 
-    So,
+    \begin{sloppypar}
+    Assume $[w] \in BA(n, k)$.
+    Then there exists a band presentation for $[w]$
+    say
+     $(\alpha_{1} \delta_{1} \alpha_{1}^{-1},
+    \ldots, \alpha_{k} \delta_{k} \alpha_{k}^{-1})$
+    where $|\alpha_{i}| \leq L(x, k)$ of $k$ bands.
+    Let $v$ be its concatenation so $v = \prod_{i=1}^{k} \alpha_{i}\delta_{i}\alpha_{i}^{-1}$.
+    Then $R(w, v) = 1$ and
+    \end{sloppypar}
     \[
-        |v| \leq \sum_{i=1}^{k} (2L(x, k) + 1) \leq  2kp(W(x)) + k \leq q(|x|). \qedhere 
+        |v| \leq \sum_{i=1}^{k} (2L(x, k) + 1) \leq  2kp(\Lambda(x)) + k \leq q(\Lambda(x)). \qedhere 
     \] 
 \end{proof}
 
