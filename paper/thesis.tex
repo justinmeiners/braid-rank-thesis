@@ -1823,15 +1823,16 @@ If we can show $\rho(v') \leq \rho(v)$
 
 \section{Dynamic Programming Algorithm}
 
-A more sophisticated variant of ``plucking" out generators as in \cite{quasipositive-3-braids} could possibly be adapted
-to compute rank.
+In \cite{quasipositive-3-braids} Orekov describes and an algorithm
+for detecting positive bands by ``plucking" generators out of a free words.
+This same idea could possibly be adapted to compute rank.
 But, our framing and the definition of $\rho$ has the important advantage of being structured as a dynamic programming problem.
 This allows it to be computed very efficiently.
 
 Dynamic programming problems are those with inductive structure
 as described in the introduction:
 optimal results of sub-problems can be combined to form
-an overall optimal result. But in addition, the sub-problems overlap,
+an overall optimal result. In addition, the sub-problems overlap,
 So results of smaller computations can be cached and reused.
 (See chapter 15 of \cite{clrs}.)
 
@@ -1858,7 +1859,7 @@ In detail, the process is:
           Each entry $m_{i, j}$ will be used to store $\rho(s_{i} \cdots s_{j})$.
 
     \item Fill in $m_{i, i} = 1$ for $i \in \{ 1, \ldots, k \}$
-           to store $\rho$ for singletons (base case).
+           to store $\rho$ for subwords of length 1 (base case).
 
       \item For each $l \in \{ 2, \ldots k \}$ and $i \in \{ 1, \ldots, k - (l - 1) \}$
            fill in $m_{i, i + (l - 1)}$ by computing $\rho$ but referencing
@@ -1966,7 +1967,6 @@ letter.
 For example $(1 2 1) 1 (\inv{2} \inv{1} \inv{2})$ is clearly a band,
 but the first letter is not the inverse of the last.
 
-% TODO Omega is not well defined on free group
 Given a word  we want to find a head
 and tail that are inverses of each other under braid group equivalence.
 We will define a function $\Omega \colon F_{n-1} \rightarrow \Z_{\geq 0} \times \Z_{\geq 0}$.
@@ -2105,8 +2105,8 @@ We will describe two such cases.
 \subsection{Quasipositivity}
 
 Whenever a braid's exponential sum (lower bound) is equal to it's rank upper bound 
-we can conclude it is quasipositive (Proposition \ref{quasipositive-from-rank}).
-Similarly, we can conclude it's quasinegative if the exponential sum equal to the negation of the rank upper bound.
+we can conclude that it is quasipositive (Proposition \ref{quasipositive-from-rank}).
+Similarly, we can conclude it is quasinegative if the exponential sum is equal to the negation of the rank upper bound.
 KnotInfo indicates which knots are quasipositive and quasinegative\footnote{No distinction is made between quasipositive and quasinegative in their database.}, so we can compare our findings with theirs.
 In our test \textbf{75\%} of knots indicated to be quasipositive or quasinegative were found with our method.
 This includes several knots for which this is known to be difficult.
