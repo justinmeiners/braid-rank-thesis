@@ -282,8 +282,11 @@ One relationship is clear:
 
 After pushing a ribbon surface into $D^{4}$,
 the ribbon singularities can be carefully removed.
-Therefore $g_{s}(K) \leq g_{r}(K)$.
-
+Therefore 
+\begin{equation}
+    \label{eq:slice-and-ribbon-genus}
+    g_{s}(K) \leq g_{r}(K)
+\end{equation}
 % TODO: what to do about closure of braid
 In section 5 of \cite{rudolph-braided-surfaces} Rudolph relates rank
 to ribbon and slice genus in the following way.
@@ -2122,7 +2125,7 @@ we can obtain a lower bound on the rank.
 KnotInfo provides the slice genus for all
 but 21 of the 2977 knots.
 So when our computed rank upper bound for a braid is equal to the lower bound
-from (\ref{eq:rank-and-ribbon-genus}), we can conclude:
+from combining (\ref{eq:slice-and-ribbon-genus}) and (\ref{eq:rank-and-ribbon-genus}), we can conclude:
 \begin{itemize}
     \item The rank upper bound is actually equal to the rank.
     \item The knot has equal slice genus and ribbon genus.
