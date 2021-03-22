@@ -2720,7 +2720,7 @@ If a presentation was not found, we could continue the search with the remaining
 \subsection{Generating templates}
 
 For a braid $x \in B_{n}$ 
-we want to generate the set of templates $T_{k}$.
+we want to generate the set of all templates $T_{k}$.
 In other words we want to find all the ways
 to write $\phi(x)$ as a product of $k$ transpositions.
 
@@ -2807,7 +2807,7 @@ on whether it's a positive band or negative band.
 
 \begin{definition}
     A \textbf{$k-$template} for $x \in B_{n}$ in $\Z$,
-    is a tuple in $(s_{1}, \ldots s_{k}) \in \{ 1, -1 \}^{k}$,
+    is a tuple $(s_{1}, \ldots s_{k}) \in \{ 1, -1 \}^{k}$,
     such that $\sum_{i=1}^{k} s_{i} = \gamma(x)$.
     This can alternatively be represented by a string of signs: $\{ +, - \}^{k}$.
 \end{definition}
@@ -2856,19 +2856,9 @@ on whether it's a positive band or negative band.
         |T_{k}| = \frac{k!}{p!(k-p)!} = {k \choose p}. \qedhere
     \].
 \end{proof}
-
-To generate them, we just modify the standard
-inductive relationship ${n \choose k} = {n - 1 \choose k} + {n - 1 \choose k - 1 }$ to generate sets $S(n, k)$ instead of counting them.
-Specifically:
-% TODO: base case
-\begin{equation}
-    S(0, k)  = \{ \emptyset \}
-\end{equation}
-and
-\begin{equation}
-        S(n, k) = \{ (-) * s \colon s \in S(n-1, k) \} \cup \{ (+) * s \colon s \in S(n-1, k-1) \}
-\end{equation}
-where $*$ is tuple concatenation.
+To generate them, we just modify the
+relationship ${n \choose k} = {n - 1 \choose k} + {n - 1 \choose k - 1 }$ to be an inductive
+construction of sets instead of counting them.
 
 \begin{theorem}
     The speedup factor is at least 
@@ -2936,7 +2926,7 @@ the runtime from naive search by a factor of $8$.
 
 \section{Implementation Notes}
 
-Several steps of Algorithm \ref{alg:templated-search} specify generating sets. 
+Several steps of Algorithm \ref{alg:templated-search} describe how to generate sets. 
 Sometimes these sets are very large and care should be
 taken to enumerate them one at a time, rather then generating them all at once.
 In our implementation we chose to 
@@ -3046,7 +3036,7 @@ Several implementations can be found on the GitHub page.
 
 The following table lists knots from the KnotInfo 
 database \cite{knotinfo},
-for which our rank method proved an interesting property.
+for which our rank method proved interesting properties.
 The properties listed are the following:
 \begin{itemize}
     \item P: The knot is quasipositive. This is shown when the exponential sum $\gamma$ is equal to computed rank $rk$.
@@ -3057,8 +3047,9 @@ The properties listed are the following:
         \[
             l = 2g_{s} - 1 + n \leq rk
         \].
-        This fact is known when the rank is actually equal to $l$
-        (See Equation \ref{eq:rank-and-ribbon-genus} and its discussion).
+        When $rk = 2g_{s} - 1$ then it's know that the slice genus
+        and the ribbon genus of the corresponding knots are equal
+        (see the discussion for (\ref{eq:rank-and-ribbon-genus})).
 
    \item *: Many of the quasipositive or negative knots in the table can be shown from knot invariants,
             and so our method is not necessary.
@@ -3089,7 +3080,7 @@ are quasipositive is unknown.
 Using our bounds method we found both have rank in $\{ 5, 7 \}$.
 A rank of $5$ would show they are quasipositive.
 Using the templated search method, we were unable
-to find a bound presentation of short conjugate length.
+to find a band presentation of short conjugate length.
 Once again, due to Markov's theorem about the variety of braid representations
 for a given knot, we may need to examine a different braid to show quasipositivity.
 
