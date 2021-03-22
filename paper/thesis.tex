@@ -24,11 +24,13 @@
 \degree{Master of Science} % e.g. Master of Science, Doctor of Philosophy  MAKE SURE THE THESIS.CLS FILE MATCHES THIS.
 \university{Brigham Young University} % e.g. Brigham Young University
 \department{Department of Mathematics} % e.g. Department of Mathematics
-\committeechair{Mark Hughes} % that is, your advisor. DO NOT USE TITLES OR DEGREE ABBREVIATIONS AFTER NAMES.
 %% These are fields that are stored in the PDF but are not visible in the document
 %% itself. They are optional. The first is the subject of your thesis (like algebraic geometry)
+
+\committeechair{Mark Hughes} % that is, your advisor. DO NOT USE TITLES OR DEGREE ABBREVIATIONS AFTER NAMES.
 \memberA{Curtis Kent}
 \memberB{Stephen Humphries}
+
 %\memberC{4th member if you're writing a dissertation}
 %\memberD{5th dissertation member}
 \subject{Rank and Quasipositivity Algorithms}
@@ -125,16 +127,15 @@
 \end{definition}
 
 \begin{definition}
-    A \textbf{braid word} $w$ is a member of the free group on $n-1$ generators: $F_{n-1} = \langle \sigma_{1}, \ldots, \sigma_{n-1} \rangle$ (assumed to be free reduced).
+    A \textbf{braid word} $w$ is an element of the free group on $n-1$ generators: $F_{n-1} = \langle \sigma_{1}, \ldots, \sigma_{n-1} \rangle$ (assumed to be reduced).
 \end{definition}
 
 We can consider $B_{n}$ as a quotient of $F_{n-1}$.
 Each \textit{braid word} $w \in F_{n-1}$ is distinguished from its equivalence class $[w] \in B_{n}$
 which is the \textit{braid} it represents.
-When it is clear we are talking about words which act as representatives for braids, and
+When it is clear we are talking about words which represent braids, and
 the operations we are working with
 are well-defined on braids, the brackets will sometimes be dropped.
-
 
 \begin{definition}
     A \textbf{band presentation} for a braid $x$ is a tuple of bands $(\alpha_{1}\delta_{1}\alpha_{1}^{-1},
@@ -156,7 +157,6 @@ Thus band presentations trivially exist for every braid.
 
 Whenever we write a braid $x \in B_{n}$ in the form $x = \prod_{i=1}^{k} \alpha_{i} \delta_{i} \alpha_{i}^{-1}$
 then this implicitly gives us a band presentation which is the tuple of its terms.
-Furthermore, if we can prove $k$ is minimal then we can conclude $rk(x) = k$.
 
 Closely related to rank, and more well known is the notion of quasipositivity:
 \begin{definition}
@@ -174,7 +174,7 @@ For many braids, we will find that we are able to compute rank directly, using
 our tools.
 But, in general rank is difficult to compute.
 Our most general method settles for computing lower and upper bounds.
-This is the ``next best thing",
+This is useful
 as close bounds can often serve the same obstruction
 purposes as the real invariant,
 or give partial information.
@@ -302,7 +302,7 @@ to ribbon and slice genus in the following way.
 
 The relationship between Euler the characteristic $\chi$
 and the genus $g$ of orientable surfaces is $g = \frac{2 - \chi - C}{2}$ where $C$ is the number
-of boundary components. For a knot $C$ is just $1$.
+of boundary components. For a knot, $C$ is just $1$.
 So finding band presentations with fewer bands yields smaller genus.
 Specifically: 
 \begin{equation}
@@ -339,8 +339,8 @@ So rank can be used in a few important ways:
 \end{itemize}
 
 The last case provides a way
-to rule out potential counterexamples to the Slice-Ribbon conjecture.
-The conjecture asks whether every ribbon knot is slice.
+to rule out potential counterexamples to the \textbf{Slice-Ribbon conjecture}
+which hypothesizes that every slice knot is also ribbon.
 Additional details about the relationship between
 rank and the Slice-Ribbon conjecture are described in \cite{on-braided-surfaces}.
 
@@ -363,7 +363,7 @@ $12\inv{2}$.
 
 \section{More about Rank}
 
-\begin{proposition}
+\begin{proposition} \cite{rudolph-braided-surfaces}
     In the braid group every positive standard
     generator is in the same conjugacy class
     as $\sigma_{1}$.
@@ -378,7 +378,7 @@ $12\inv{2}$.
         = \sigma_{n+1} \sigma_{n} \sigma_{n + 1} \sigma_{n + 1}^{-1} \sigma_{n}^{-1}
         = \sigma_{n + 1}.
     \]
-    So it holds for $B_{n+2}$ and the result follows by induction \cite{rudolph-braided-surfaces}.
+    So it holds for $B_{n+2}$ and the result follows by induction.
 \end{proof}
 This fact tells us that only conjugates of $\sigma_{1}^{\pm 1}$
 need to be considered when searching for band presentations.
@@ -446,7 +446,7 @@ where the rank can be computed easily.
 Braid groups arise as an algebraic description of topological braids,
 which have nice geometric images that can give us clues about properties of rank.
 \begin{definition}
-    A \textbf{topological braid on $n$ strands} is a submanifold $M$ of dimension 1 with boundary of $D^{2} \times I$, having $n$ components,
+    A \textbf{topological braid on $n$ strands} is a submanifold $M$ with boundary of $D^{2} \times I$ of dimension 1, having $n$ components,
     and so that the projection map $\pi_{I} \colon M \times I \rightarrow I$
     is a covering map. See Figure \ref{fig:topological-braid}.
 \end{definition}
@@ -530,7 +530,7 @@ group. We first look at how bands behave under the homomorphism.
 \end{lemma}
 
 \begin{proof}
-    Suppose $\varphi = f^{-1}(i j)f$.
+    Let $(i,j), f \in S_{n}$ and consider $\varphi = f^{-1}(i j)f$.
     Pick $k \in \{ 1, \ldots, n \}$. 
     If $f(k) \not \in \{ i, j \}$
     then $\varphi(k) = f^{-1}(i j)f(k) = f^{-1}f(k) = k$,
@@ -546,10 +546,10 @@ group. We first look at how bands behave under the homomorphism.
 \end{definition}
 
 \begin{lemma}
+    (See exercise 3.5.3 of \cite{dummit-and-foote}.)
     Every transposition $(i j)$ can be written
     as a conjugate of an adjacent transpositions
-    by products of adjacent transpositions.
-    (See exercise 3.5.3 of \cite{dummit-and-foote}.)
+    by products of adjacent transpositions. 
 \end{lemma}
 
 \begin{proof}
@@ -581,6 +581,7 @@ group. We first look at how bands behave under the homomorphism.
     Then $rk_{S_{n}}(\varphi) = \sum_{i=1}^{m} l_{i} - 1$.
 \end{proposition}
 
+% TODO: CITE OR PROVE MINIMALITY
 \begin{proof}
     The number of bands required to write $\varphi$
     is the smallest number of transpositions needed
@@ -694,11 +695,11 @@ The following braid has trivial exponential sum
 but as large a rank as one wishes, simply by adjusting
 $k$.
 It can involve any number of generators depending
-on the number of strands (just stop the sequence when desired).
+on the number of strands (just stop the sequence when desired),
+but they are chosen to be index 2 apart:
 \[
     \inv{1}^{k} 3^{k} \inv{5}^{k} 7^{k} \ldots 
 \]
-
 Because the rank lower bounds provided by exponential sum and permutations
 detect very different features,
 they complement each other well in estimating the rank.
@@ -816,6 +817,10 @@ is a surjective homomorphism.
 
 The natural candidate to apply this proposition to is the free group.
 \begin{definition}
+    Suppose $F_{n-1} = \langle a_{1}, \ldots a_{n-1} \rangle$
+    and $\psi \colon F_{n-1} \rightarrow B_{n}$
+    is a surjective homomorphism
+    so that $\phi(a_{i}) = \sigma_{i}$ for each free generator $a_{i}$.
     A \textbf{band} in the free group $F_{n-1}$ is a conjugate
     of a free generator (positive or negative).
 \end{definition}.
@@ -915,8 +920,7 @@ This example reveals the following fact:
     This is not the identity permutation because $1$ maps to $4$.
 \end{proof}
 
-We provide an additional counterexample which reveals why this is the case:
-
+We provide an additional counterexample which reveals why this is the case.
 \begin{example}
     The braid word $w = 1 2 1$ has length 3 so $rk([w]) \in \{ 1, 3 \}$.
     The exponential sum is $3$ so $rk([w]) = 3$.
@@ -965,6 +969,7 @@ and word concatenation to become matrix multiplication;
 operations which have straightforward computer implementations.
 
 \begin{proposition}
+    \cite{lk-representation}. (This specific formula is from Chapter 4.2.)
 Consider the  free module of rank ${n \choose 2}$
 over the ring $\Lambda = \Z[q^{\pm 1}, t^{\pm 1}]$.
 The basis for this module is denoted by the set $\{ e_{i, j} \colon 1 \leq i < j \leq n \}$.
@@ -981,7 +986,6 @@ The braid group $B_{n}$ acts on this module in the following manner:
     \end{cases}
 \]
 This action is \textit{faithful}. (This is a hard result.)
-(See \cite{lk-representation}. This specific formula is from Chapter 4.2.)
 \end{proposition}
 
 Faithfulness is necessary to be able
@@ -1064,6 +1068,7 @@ coefficients, but this introduces its own overhead.
 \section{Action on the Free Group.}
 
 \begin{proposition}
+\cite{action-on-free-group}
 The braid group $B_{n}$ acts on the free group
 on $n$ generators $F_{n} = \langle t_{1}, \ldots, t_{n} \rangle$ in the following manner:
 \[
@@ -1074,7 +1079,7 @@ on $n$ generators $F_{n} = \langle t_{1}, \ldots, t_{n} \rangle$ in the followin
         t_{i + 1}t_{i}t_{i + 1}^{-1} & j = i + 1. \\
     \end{cases}
 \]
-    Furthermore, this action is faithful. \cite{action-on-free-group}
+    Furthermore, this action is faithful. 
 \end{proposition}
 
 The action of $\sigma_{i}^{-1}$ can be determined directly from this definition,
@@ -1298,10 +1303,9 @@ In this chapter we develop an efficient solution for computing rank
 in the free group based on dynamic programming.
 This method and it's proof of correctness are original. 
 Because of Proposition \ref{prop:upper-bounds-from-quotient}.
-this immediately gives us an upper bound on the rank in the braid group..
+This immediately gives us an upper bound on the rank in the braid group.
 Later, this approach will be modified specifically for the braid group to compute closer
 upper bounds.
-
 In \cite{quasipositive-3-braids} Orekov describes
 an algorithm for detecting quasipositivity in the free group.
 Our method additionally solves this problem.
@@ -1395,6 +1399,8 @@ However, we claim that the rank can be computed simply by finding
 the optimal way to apply these relationships.
 In other words, if we choose all the right splits and conjugates, the resulting
 upper bound is actually equal to the rank.
+This next section makes this precise and provides
+a proof of its correctness.
 
 \section{Optimal Splitting and Conjugating}
 
@@ -2097,7 +2103,7 @@ we applied them to the KnotInfo database \cite{knotinfo} which contains invarian
 One caveat to these tests is that a given knot can be represented by many distinct braids,
 due to the well-known theorem of Markov.
 We simply used the braids available in our database.
-Thus our rank upper bounds may be worse or better, depending on the that braid was chosen.
+Thus our rank upper bounds may be worse or better, depending on the braid that was chosen.
 The braids chosen in the KnotInfo database may also be biased in certain ways.
 
 This database does not include rank,
