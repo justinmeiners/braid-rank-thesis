@@ -817,11 +817,9 @@ is a surjective homomorphism.
 
 The natural candidate to apply this proposition to is the free group.
 \begin{definition}
-    Suppose $F_{n-1} = \langle a_{1}, \ldots a_{n-1} \rangle$
-    and $\psi \colon F_{n-1} \rightarrow B_{n}$
-    is a surjective homomorphism
-    so that $\phi(a_{i}) = \sigma_{i}$ for each free generator $a_{i}$.
-    A \textbf{band} in the free group $F_{n-1}$ is a conjugate
+    Suppose $F_{n} = \langle a_{1}, \ldots a_{n} \rangle$
+    so each generator $a_{i}$ has been fixed.
+    A \textbf{band} in the free group $F_{n}$ is a conjugate
     of a free generator (positive or negative).
 \end{definition}.
 \begin{definition}
@@ -946,8 +944,25 @@ Having a fast solution to the word problem is an important building block for ou
 so that we can identify band presentations
 and conjugations.
 
-A variety of different methods exist, all with various strengths,
-and some with impressive big O complexities.
+A variety of different methods exist, all with various strengths.
+To discuss their complexities we will need the following definition:
+\begin{definition}
+    \cite{clrs}
+    For a functions $f, g \colon \mathbb{R} \rightarrow \mathbb{R}$ 
+    we say \textbf{$f$ has asymptotic upper bound $g$} if
+    there exists constants $c, d \in \mathbb{R}$
+    so that $0 \leq f(x) \leq cg(x)$ for all $x \geq d$.
+    The set of all functions that have asymptotic upper bound $g$
+    is denoted $O(g(x))$.
+\end{definition}
+\begin{definition}
+    For an input parameter $n$
+    we say an algorithm is $O(g(n))$
+    if the number of steps required to execute
+    the algorithm as a function of $n$ is in $O(g(n))$.
+    This is sometimes called the \textbf{big O} complexity
+    of the algorithm.
+\end{definition}
 However, there is wide gap between the existence of an algorithm
 in the theoretical sense, and having a practical implementation.
 Algorithms which optimize big O are useful for classifying complexity,
