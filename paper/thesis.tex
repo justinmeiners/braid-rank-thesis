@@ -2327,7 +2327,7 @@ probably require longer bands to describe as well.
     Otherwise assign:
 
     \begin{equation}
-        L(x, k) = \inf_{\prod_{i}^{k} \alpha_{i} \delta_{i} \alpha_{i}^{-1} \in S_{k}} \sup |\alpha_{i}|
+        L(x, k) = \inf_{\prod_{i}^{k} (\alpha_{i} \delta_{i} \alpha_{i}^{-1}) \in S_{k}} \sup |\alpha_{i}|
     \end{equation}
     where $|\alpha_{i}|$ is the length of the conjugating word $\alpha_{i}$.
 
@@ -2572,7 +2572,7 @@ as in the following algorithm:
     \label{alg:templated-search}
     ~\\
     \textbf{Input:} A braid $x$.
-                    A band presentation length $k$.
+                    The number of bands in a potential presentation $k$.
                     A maximum conjugate length $l_{0}$.
                     A homomorphism $\phi$ such that $|\beta_{\phi}| < \infty$.
 
@@ -2587,7 +2587,7 @@ as in the following algorithm:
             These sets are referred to as \textit{band buckets}.
 
         \item Remove band words that represent the same braid from each bucket $C_{\phi([\beta])}$.
-              Each now contains words representing distinct braids.
+              Each word in a bucket now represents a distinct braid.
 
         \item Generate all $k$-templates for $x$.
             This is the set $T_{k} = \{ (b_{1}, \ldots, b_{k}) \in \beta_{\phi} \colon b_{1} \cdots b_{k} = \phi(x) \}$.
@@ -2641,7 +2641,7 @@ and it's not difficult for this to be the case.
 
 \begin{corollary}
     Assuming bands are evenly distributed among buckets,
-    the algorithm will compare
+    Algorithm \ref{alg:templated-search} will compare
         $\frac{ |T_{k}| }{ |\beta_{\phi}|^{R} }$
     as many band presentations as the naive search.
 \end{corollary}
