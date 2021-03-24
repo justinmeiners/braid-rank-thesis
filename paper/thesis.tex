@@ -254,7 +254,7 @@ whose boundary is $K$.
     \centering
     \def\svgwidth{6cm}
     \input{figures/ribbon-singularity.pdf_tex}
-    \caption{Ribbon Singularity}
+    \caption{Ribbon singularity}
 
     The solid lines represent the boundary $K$
     of the ribbon surface. The dotted line
@@ -454,7 +454,7 @@ which have nice geometric images that can give us clues about properties of rank
     \centering
     \def\svgwidth{10cm}
     \input{figures/topological-braid.pdf_tex}
-    \caption{Topological Braid in $D^{2} \times I$}
+    \caption{Topological braid in $D^{2} \times I$}
     \label{fig:topological-braid}
 \end{figure}
 
@@ -1808,7 +1808,28 @@ If we can show $\rho(v') \leq \rho(v)$
          Then $v = s_{i}s_{i+1} w_{2} s_{i}^{-1}$
          and the proof is similar to  case 6. \qedhere
 \end{description}
+To check that all cases have been considered see Figure \ref{fig:case-analysis}.
 \end{proof}
+
+\begin{figure}[h]
+    \centering
+\begin{tabular}{ l l l | l}
+    $s_{i}$ & $s_{i+1}$ & Does either descend from the other node? & Case \\
+    \hline
+    leaf & leaf & no & 3 \\
+    leaf & conjugate & $s_{i}$ descends & 6a \\
+    leaf & conjugate & no &  4 \\
+    conjugate & leaf & $s_{i+1}$ descends &  7a \\
+    conjugate & leaf & no &  5 \\
+    conjugate & conjugate & in the same node & 1 \\
+    conjugate & conjugate & $s_{i}$ descends & 6b \\
+    conjugate & conjugate & $s_{i+1}$ descends & 7b \\
+    conjugate & conjugate & no & 2\\
+\end{tabular}
+    \caption{Enumeration of cases for Theorem \ref{thm:invariant-free-reduction}}
+    \label{fig:case-analysis}
+\end{figure}
+
 
 \begin{lemma}
     Suppose $w = \prod_{i=1}^{k} w_{i}s_{i}w_{i}^{-1} \in W_{n}$
