@@ -28,8 +28,8 @@
 %% itself. They are optional. The first is the subject of your thesis (like algebraic geometry)
 
 \committeechair{Mark Hughes} % that is, your advisor. DO NOT USE TITLES OR DEGREE ABBREVIATIONS AFTER NAMES.
-\memberA{Curtis Kent}
-\memberB{Stephen Humphries}
+\memberA{Stephen Humphries}
+\memberB{Curtis Kent}
 
 %\memberC{4th member if you're writing a dissertation}
 %\memberD{5th dissertation member}
@@ -574,20 +574,50 @@ group. We first look at how bands behave under the homomorphism.
 \end{proof}
 
 \begin{proposition}
-    Suppose $\varphi = c_{1} \cdots c_{l}$ is a decomposition
-    of $\varphi \in S_{n}$ into disjoint cycles.
-    Assume each $c_{i}$ is a cycle of length $l_{i}$.
-    Then $rk_{S_{n}}(\varphi) = \sum_{i=1}^{m} l_{i} - 1$.
+    Suppose $f = c_{1} \cdots c_{k}$ is a decomposition
+    of $f \in S_{n}$ into disjoint cycles (including those for fixed elements).
+    Then $rk_{S_{n}}(\varphi) = n - k$.
 \end{proposition}
 
 % TODO: CITE OR PROVE MINIMALITY
 \begin{proof}
-    The number of bands required to write $\varphi$
-    is the smallest number of transpositions needed
-    to write $\varphi$.
-    Each $c_{i} = (a_{1} a_{2} \ldots a_{l_{i}})$ can be written
-    minimally as a product of $l_{i} - 1$  transpositions
+    The number of bands required to write $f$
+    is the least number of transpositions needed
+    to write $f$.
+    Each $c_{i} = (a_{1} a_{2} \cdots a_{l_{i}})$ can be written
+    as $l_{i} - 1$  transpositions
     as: $c_{i} = (a_{1}a_{l_{i}}) \cdots (a_{1} a_{2})$.
+    Therefore $f$ can be written as $n - k$ transpoitions:
+    \[
+    \begin{split}
+        \sum_{i=1}^{k} l_{i} &= n  \\
+        \sum_{i=1}^{k} (l_{i} - 1) &= n - k \\
+    \end{split}
+    \].
+
+    To see that at least $n - k$ are required, suppose $g \in S_{n}$
+    and $g$ has $p$ cycles.
+    We claim that for any transposition $(i j)$,
+    the product $g' = (i j)g$ has $p+1$ cycles 
+    or $p - 1$ cycles.
+    Suppose $i$ and $j$ are in the same cycle of $g$.
+    We can assume $a_{1} = i$ and $a_{m} = j$ for some $1 < m \leq l$ in the cycle $(a_{1} a_{2} \cdots a_{m} \cdots a_{l})$.
+    Then $(a_{1} a_{m}) (a_{1} a_{2} \cdots a_{m} \ldots a_{l}) = (a_{1} \cdots a_{m - 1}) (a_{m} \cdots a_{l})$,
+    adding a cycle.
+
+    Otherwise $i$ and $j$ are in different cycles.
+    We can assume $a_{1} = i$ and $b_{1} = j$ in the cycles $(a_{1} a_{2} \cdots a_{l})$
+    and $(b_{1} b_{2}, \cdots b_{m})$.
+    Then $(a_{1} b_{1}) (a_{1}, a_{2} \ldots, a_{l}) (b_{1} b_{2} \cdots, b_{m})
+    = (a_{1} \cdots, a_{l}b_{1} \cdots b_{m})$,
+    removing one cycle.
+
+    The identity permutation has $n$ cycles.
+    So for $t$ transpositions the minimum number of
+    cycles we can construct is $n - t$,
+    (supposing each removes a cycle).
+    Therefore to construct $k$ cycles
+    we need at least $n - k$ transpositions.
 \end{proof}
 
 \subsection{Example of braid whose rank is undetected}
