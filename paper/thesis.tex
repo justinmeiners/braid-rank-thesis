@@ -127,7 +127,7 @@
 \end{definition}
 
 \begin{definition}
-    A \textbf{braid word} $w$ is an element of the free group on $n-1$ generators: $F_{n-1} = \langle \sigma_{1}, \ldots, \sigma_{n-1} \rangle$ (assumed to be reduced).
+    An \textbf{($n$-strand) braid word} $w$ is an element of the free group on $n-1$ generators: $F_{n-1} = \langle \sigma_{1}, \ldots, \sigma_{n-1} \rangle$ (assumed to be reduced).
 \end{definition}
 
 We can consider $B_{n}$ as a quotient of $F_{n-1}$.
@@ -159,9 +159,9 @@ Whenever we write a braid $x \in B_{n}$ in the form $x = \prod_{i=1}^{k} \alpha_
 then this implicitly gives us a band presentation which is the tuple of its terms.
 
 Closely related to rank, and more well known is the notion of quasipositivity:
-\begin{definition}
+\begin{definition} $\cite{rudolph-braided-surfaces}$
     A braid is \textbf{quasipositive} if it has a
-    band presentation consisting only of positive bands $\cite{rudolph-braided-surfaces}$.
+    band presentation consisting only of positive bands .
     A braid is \textbf{quasinegative} if it has a band
     presentation consisting only of negative bands.
 \end{definition}
@@ -290,7 +290,7 @@ Therefore
 \end{equation}
 
 % TODO: what to do about closure of braid
-\begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces})
+\begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces}.)
     Anytime $K$ is represented by the closure of a braid $\widehat{x}$ 
     and $x \in B_{n}$ has a band presentation: $(\alpha_{1} \delta_{1} \alpha_{1}^{-1}, \ldots, \alpha_{k} \delta_{k} \alpha_{k}^{-1})$,
     then a ribbon surface can be constructed for $K$ by reading off the bands,
@@ -458,7 +458,7 @@ which have nice geometric images that can give us clues about properties of rank
     \label{fig:topological-braid}
 \end{figure}
 
-Elements of the braid group correspond to smooth isotopy classes of topological braids
+Elements of the braid group are in 1-1 correspondence with smooth isotopy classes of topological braids
 relative to the manifold boundary,
 where the number of strands is the index of the covering map.
 
@@ -1012,7 +1012,7 @@ and word concatenation to become matrix multiplication;
 operations which have straightforward computer implementations.
 
 \begin{proposition}
-    \cite{lk-representation}. (This specific formula is from Chapter 4.2.)
+    (Chapter 4.2 of \cite{lk-representation}.)
 Consider the  free module of rank ${n \choose 2}$
 over the ring $\Lambda = \Z[q^{\pm 1}, t^{\pm 1}]$.
 The basis for this module is denoted by the set $\{ e_{i, j} \colon 1 \leq i < j \leq n \}$.
@@ -1280,7 +1280,7 @@ Combining with Proposition \ref{reduced-is-not-identity}
 gives an algorithm for solving the word problem.
 
 
-\begin{algorithm} (titled ``FullHRed" in \cite{dehornoy})
+\begin{algorithm} (Titled ``FullHRed" in \cite{dehornoy}.)
     ~\\
     \textbf{Input:} Braid word $w = s_{1} \cdots s_{m} \in F_{n-1}$ to handle reduce.
     ~\\
