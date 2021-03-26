@@ -226,13 +226,18 @@ We will give a brief of this relationship here.
     Knots are considered up to isotopy.
 \end{definition}
 
+Due to a famous theorem of Alexander, every knot 
+can be constructed from a braid through an operation
+called \textit{closure}.
+However, this is not a 1-1 correspondence.
+Many distinct braids may be able to represent the same knot.
+
 \begin{definition}
 Consider the 3-sphere $S^{3}$ as the boundary of the 4-ball $D^{4}$.
 A \textbf{slice surface} for a knot $K \subseteq S^{3}$
 is an orientable surface smoothly embedded in $D^{4}$ 
 whose boundary is $K$.
 \end{definition}
-
 
 \begin{definition}
     The \textbf{slice genus} of a knot $K$ is the minimum genus
@@ -289,7 +294,6 @@ Therefore
     g_{s}(K) \leq g_{r}(K)
 \end{equation}
 
-% TODO: what to do about closure of braid
 \begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces}.)
     Anytime $K$ is represented by the closure of a braid $\widehat{x}$ 
     and $x \in B_{n}$ has a band presentation: $(\alpha_{1} \delta_{1} \alpha_{1}^{-1}, \ldots, \alpha_{k} \delta_{k} \alpha_{k}^{-1})$,
@@ -2162,8 +2166,8 @@ To test the effectiveness of our bounding methods,
 we applied them to the KnotInfo database \cite{knotinfo} which contains invariants and properties for 2977 knots.
 \end{sloppypar}
 
-One caveat to these tests is that a given knot can be represented by many distinct braids,
-due to the well-known theorem of Markov.
+One caveat to these tests is that due
+to Alexander's theorem, a knot can be represented by many distinct braids.
 We simply used the braids available in our database.
 Thus our rank upper bounds may be worse or better, depending on the braid that was chosen.
 The braids chosen in the KnotInfo database may also be biased in certain ways.
@@ -3148,7 +3152,7 @@ Using our bounds method we found both have rank in $\{ 5, 7 \}$.
 A rank of $5$ would show they are quasipositive.
 Using the templated search method, we were unable
 to find a band presentation of short conjugate length.
-Once again, due to Markov's theorem about the variety of braid representations
+Once again, due to the variety of braid representations
 for a given knot, we may need to examine a different braid to show quasipositivity.
 
 %% Choose your bibliography style. Some options: plain, unsrt, abbrev etc.
