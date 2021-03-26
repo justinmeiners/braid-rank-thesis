@@ -854,8 +854,9 @@ The natural candidate to apply this proposition to is the free group.
 \begin{definition}
     Suppose $F_{n} = \langle a_{1}, \ldots a_{n} \rangle$
     so each generator $a_{i}$ has been fixed.
-    A \textbf{band} in the free group $F_{n}$ is a conjugate
-    of a free generator (positive or negative).
+    A \textbf{positive band} in the free group $F_{n}$ is a conjugate
+    of a generator $a_{i}$.
+    A \textbf{negative band} is the inverse of a positive band.
 \end{definition}
 \begin{definition}
     A \textbf{band presentation} for $h \in F_{n-1}$ is a 
@@ -1163,7 +1164,7 @@ acts as the identity element.
     \item For each free generator $t \in \{ t_{1} , \ldots , t_{n} \}$:
 
     \begin{enumerate}
-        \item Define a free word $x = t$.
+        \item Define a word $x = t \in F_{n-1}$.
 
         \item Apply the action of each generator $s_{i}$ to $x$ in order, replacing $x$ with the result each time.
               (Braids are right to left, so the rightmost braid generator acts first.)
@@ -1182,7 +1183,7 @@ acts as the identity element.
 \end{algorithm}
 
 The free reduction step is done to avoid having the intermediate
-free word $x$ grow unnecessarily. Without this adjustment
+word $x$ grow unnecessarily. Without this adjustment
 the action can potentially triple the length each time, so it grows rather quickly.
 But, most often free reduction helps curtail growth.
 
@@ -1456,7 +1457,7 @@ a proof of its correctness.
     Let $W_{n}$ be the set of finite strings on a set of $n$ letters $\{ t_{1}, \ldots, t_{n} \}$ 
     and their inverses $\{ t_{1}^{-1}, \ldots, t_{n}^{-1} \}$
     including the empty string.
-    Members of $W_{n}$ are called \textbf{free words}.
+    Members of $W_{n}$ are called \textbf{strings} on $n$-generators.
 \end{definition}
 
 Forgetting the group structure on $F_{n}$,
@@ -1488,7 +1489,7 @@ application has been chosen in proofs.
 
 \begin{proposition}
     \label{upper-bounds}
-    For any free word $w \in W_{n}$, $\rho$ gives an upper bound on the rank. 
+    For any string $w \in W_{n}$, $\rho$ gives an upper bound on the rank. 
     That is $rk_{F}(fr(w)) \leq \rho(w)$.
 \end{proposition}
 \begin{proof}
@@ -1502,7 +1503,7 @@ application has been chosen in proofs.
 
 \begin{definition}
     An \textbf{expression tree for $w \in W_{n}$} is a tree where
-    each node is labeled with a free word in $W_{n}$,
+    each node is labeled with a string in $W_{n}$,
     satisfying the following constraints:
     \begin{itemize}
     \item The root node is labeled $w$.
@@ -1902,7 +1903,7 @@ To check that all cases have been considered see Figure \ref{fig:case-analysis}.
 \section{Dynamic Programming Algorithm}
 
 In \cite{quasipositive-3-braids} Orekov describes and an algorithm
-for detecting positive bands by ``plucking" generators out of a free words.
+for detecting positive bands by ``plucking" generators out of a string.
 This same idea could possibly be adapted to compute rank.
 But, our framing and the definition of $\rho$ has the important advantage of being structured as a dynamic programming problem.
 This allows it to be computed very efficiently.
