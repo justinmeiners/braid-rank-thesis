@@ -451,8 +451,12 @@ which have nice geometric images that can give us clues about properties of rank
 \begin{definition}
     A \textbf{topological braid on $n$ strands} is a submanifold $M$ with boundary of $D^{2} \times I$ of dimension 1, having $n$ components,
     and so that the projection map $\pi_{I} \colon M \times I \rightarrow I$
-    is a covering map. See Figure \ref{fig:topological-braid}.
+    is a covering map.
+    See Figure \ref{fig:topological-braid}.
 \end{definition}
+
+For a given $n$ we typically fix $n$ distinct points $\{ p_{1}, \ldots, p_{n} \} \subset D^{2}$.
+So for any topological braid $M$ on $n$ strands, the boundary $S \cap D^{2} \times \{ a \} = \{ p_{1}, \ldots, p_{n} \} \times \{ a \}$ for $a \in \{ 0, 1 \}$.
 
 \begin{figure}[h]
     \centering
@@ -834,16 +838,15 @@ to be bands in $B_{n}$.
 
 \begin{proposition}
     \label{prop:upper-bounds-from-quotient}
-Suppose $\psi \colon G \rightarrow B_{n}$
-is a surjective homomorphism.
-    Suppose $x \in B_{n}$ and $w = \prod_{i}^{L} h_{i}g_{i}h_{i}^{-1} \in G$
+    Let $\psi \colon G \rightarrow B_{n}$ be a surjective homomorphism.
+    Suppose $x \in B_{n}$ and $w = \prod_{i}^{k} h_{i}g_{i}h_{i}^{-1} \in G$
     where $\phi(w) = x$
     and each $\psi(g_{i})$ is a standard
     generator in $B_{n}$. 
-    Then $rk(x) \leq L$.
+    Then $rk(x) \leq k$.
 \end{proposition}
 \begin{proof}
-    The image $\psi(w) = x = \prod_{i}^{L} \psi(h_{i}) \psi(g_{i}) \psi(h_{i})^{-1}$
+    The image $\psi(w) = x = \prod_{i}^{k} \psi(h_{i}) \psi(g_{i}) \psi(h_{i})^{-1}$
     gives a band presentation for $x$, but may not be minimal.
 \end{proof}
 
@@ -853,7 +856,7 @@ The natural candidate to apply this proposition to is the free group.
     so each generator $a_{i}$ has been fixed.
     A \textbf{band} in the free group $F_{n}$ is a conjugate
     of a free generator (positive or negative).
-\end{definition}.
+\end{definition}
 \begin{definition}
     A \textbf{band presentation} for $h \in F_{n-1}$ is a 
     tuple of bands $(g_{1}s_{1}g_{1}^{-1}, \ldots, g_{k}s_{k}g_{k}^{-1})$
