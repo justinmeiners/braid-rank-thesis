@@ -780,15 +780,15 @@ This is actually a property of integers:
     So the result follows from the previous lemma.
 \end{proof}
 
-Define $Pb \colon B_{n} \rightarrow \Z_{\geq 0}$ 
+Define $\Phi \colon B_{n} \rightarrow \Z_{\geq 0}$ 
 to be the number of positive bands
 in any minimal band presentation of $x \in B_{n}$.
 \begin{corollary}
-   $Pb$ is well defined and $Pb(x) = \frac{rk(x) + \gamma(x)}{2}$.
+   $\Phi$ is well defined and $\Phi(x) = \frac{rk(x) + \gamma(x)}{2}$.
 \end{corollary}
 
 \begin{proof}
-    Since $\gamma$ and $rk$ are well defined on braids, so is $Pb$.
+    Since $\gamma$ and $rk$ are well defined on braids, so is $\Phi$.
 \end{proof}
 
 \section{Quasipositivity}
@@ -812,8 +812,8 @@ for braids has been studied extensively, especially in its relation to knots.
     $rk(x) = k$.
 
     Suppose $rk(x) = k = \gamma(x)$. Then $x$ has a band presentation of length $k$.
-    By the previous corollary $2Pb(x) = \gamma(x) + rk(x)$,
-    so $Pb(x) = k$.
+    By the previous corollary $2\Phi(x) = \gamma(x) + rk(x)$,
+    so $\Phi(x) = k$.
 \end{proof}
 
 \begin{corollary}
@@ -1462,8 +1462,8 @@ a proof of its correctness.
 
 Forgetting the group structure on $F_{n}$,
 we can consider $F_{n}$ as a subset of $W_{n}$.
-There is a well defined function $fr \colon W_{n} \rightarrow F_{n}$
-taking $w$ to its free reduced word $fr(w)$
+There is a well defined function $\xi \colon W_{n} \rightarrow F_{n}$
+taking $w$ to its free reduced word $\xi(w)$
 
 Let $w = s_{1}s_{2} \cdots s_{m} \in W_{n}$.
 and define mutually recursive functions $C \colon W_{n} \rightarrow \Z_{\geq 0} \cup \{ \infty \}$
@@ -1490,7 +1490,7 @@ application has been chosen in proofs.
 \begin{proposition}
     \label{upper-bounds}
     For any string $w \in W_{n}$, $\rho$ gives an upper bound on the rank. 
-    That is $rk_{F}(fr(w)) \leq \rho(w)$.
+    That is $rk_{F}(\xi(w)) \leq \rho(w)$.
 \end{proposition}
 \begin{proof}
     $\rho$ and $C$ terminate for all inputs because each recursive call reduces the length of the input
@@ -1870,8 +1870,8 @@ To check that all cases have been considered see Figure \ref{fig:case-analysis}.
 
 \begin{lemma}
     Suppose $w = \prod_{i=1}^{k} w_{i}s_{i}w_{i}^{-1} \in W_{n}$
-    and $k = rk_{F}(fr(w))$,
-    then $\rho(w) = rk_{F}(fr(w))$.
+    and $k = rk_{F}(\xi(w))$,
+    then $\rho(w) = rk_{F}(\xi(w))$.
 \end{lemma}
 
 \begin{proof}
@@ -1883,7 +1883,7 @@ To check that all cases have been considered see Figure \ref{fig:case-analysis}.
     &\leq 1 + 1 + \cdots + 1 = k.
 \end{split}
 \]
-    So $\rho(w) \leq rk_{F}(fr(w))$.
+    So $\rho(w) \leq rk_{F}(\xi(w))$.
     By Proposition \ref{upper-bounds} we have equality.
 \end{proof}
 
@@ -2501,7 +2501,7 @@ If the bounds $f$ from this corollary turn out to reasonably optimistic we can c
 
 \begin{proof}
     Let $R \colon W_{n-1} \times W_{n-1} \rightarrow \{ 0, 1\}$ be defined
-    so  $R(w, v) = 1$ iff $[fr(w)] = [fr(v)]$ and $v$ is a concatenation of $k$ bands.
+    so  $R(w, v) = 1$ iff $[\xi(w)] = [\xi(v)]$ and $v$ is a concatenation of $k$ bands.
     The equality can be decided in polynomial time of the lengths of $w$ and $v$
     since free reduction is linear and
     braid equality test is polynomial due to Lawrence-Krammer (Proposition \ref{prop:lk-runtime}).
