@@ -313,7 +313,7 @@ Specifically:
     g_{r}(K) \leq \frac{1 + rk(x) - n}{2}.
 \end{equation}
 
-Furthemore, there is always some braid representation making this an equality.
+Furthermore, there is always some braid representation making this an equality.
 \begin{proposition} (Follows from Section 3 and Section 5 of \cite{rudolph-braided-surfaces}.)
     For a knot $K$ there exists a braid $x \in B_{n}$ whose
     closure $\widehat{x}$ represents $K$ and
@@ -421,7 +421,6 @@ The definition for rank is analogous; the only ambiguity is in what constitutes 
         such that $y = \prod_{i=1}^{k} \alpha_{i} \phi(\delta_{i}) \alpha_{i}^{-1}$.
     \end{sloppypar}
 \end{definition}
-
 Rank for another group $H$ is denoted by a subscript $rk_{H}$.
 Note that $rk_{H}$ also depends on the choice of homomorphism $\phi$.
 
@@ -431,7 +430,7 @@ Suppose $\phi \colon B_{n} \rightarrow H$ is a surjective homomorphism and $x \i
 \end{proposition}
 
 \begin{proof}
-Suppose $\prod_{i}^{k} \alpha_{i}\sigma_{i}\alpha_{i}^{-1}$
+Suppose $x = \prod_{i}^{k} \alpha_{i}\sigma_{i}\alpha_{i}^{-1}$
 and $k = rk(x)$.
 Then 
 \[
@@ -441,7 +440,7 @@ Then
 \]
 Since each term in this product is a band in $H$, this gives a
 band presentation for $\phi(x)$ in $H$.
-Since rank in $H$ gives the shortest such presentation, $rk_{H}(\phi(x)) \leq k$.
+Because rank in $H$ gives the shortest such presentation, $rk_{H}(\phi(x)) \leq k$.
 \end{proof}
 
 To apply this fact, we want to find quotients
@@ -515,7 +514,7 @@ the resulting permutation by tracing a strand from it's start point $i$, to it's
     \centering
     \def\svgwidth{4cm}
     \input{figures/braid-generator-squared.pdf_tex}
-    \caption{$\sigma_{1}^{2}$ in $B_{3}$}
+    \caption{The braid $\sigma_{1}^{2}$ in $B_{3}$}
     \label{fig:generator-squared}
 \end{figure}
 
@@ -543,19 +542,20 @@ group. We first look at how bands behave under the homomorphism.
 \end{lemma}
 
 \begin{proof}
-    Let $(i,j), f \in S_{n}$ and consider $\varphi = f^{-1}(i j)f$.
+    Consider the conjugate $\varphi = f^{-1}(i j)f$
+    where $f \in S_{n}$ and $(i j)$ is a transposition in $S_{n}$.
     Pick $k \in \{ 1, \ldots, n \}$. 
     If $f(k) \not \in \{ i, j \}$
-    then $\varphi(k) = f^{-1}(i j)f(k) = f^{-1}f(k) = k$,
+    then $\varphi(k) = f^{-1} \circ (i j) \circ f(k) = f^{-1} \circ f(k) = k$,
     so $k$ is fixed.
-    So the only elements that are permuted
+    Therefore, the only elements that are permuted
     are $f^{-1}(i)$ and $f^{-1}(j)$.
-    Because $\varphi(f^{-1}(i)) = f^{-1}(j)$,
-    we conclude $\varphi = (f^{-1}(i) f^{-1}(j))$.
+    Because $\varphi \circ f^{-1}(i) = f^{-1}(j)$,
+    we conclude $\varphi = (f^{-1}(i)\enspace f^{-1}(j))$.
 \end{proof}
 
 \begin{definition}
-    A transposition of the form $(i\ i+1)$ is called an \textbf{adjacent transposition}.
+    A transposition of the form $(i\enspace i+1)$ is called an \textbf{adjacent transposition}.
 \end{definition}
 
 \begin{lemma}
@@ -589,25 +589,21 @@ group. We first look at how bands behave under the homomorphism.
 
 \begin{proposition}
     Suppose $f = c_{1} \cdots c_{k}$ is a decomposition
-    of $f \in S_{n}$ into disjoint cycles (including those for fixed elements).
-    Then $rk_{S_{n}}(\varphi) = n - k$.
+    of $f \in S_{n}$ into disjoint cycles (including cycles of length 1 for fixed elements).
+    Then $rk_{S_{n}}(f) = n - k$.
 \end{proposition}
 
 \begin{proof}
-    The number of bands required to write $f$
-    is the least number of transpositions needed
-    to write $f$.
     Each $c_{i} = (a_{1} a_{2} \cdots a_{l_{i}})$ can be written
-    as $l_{i} - 1$  transpositions
+    with $l_{i} - 1$  transpositions
     as: $c_{i} = (a_{1}a_{l_{i}}) \cdots (a_{1} a_{2})$.
     Therefore $f$ can be written as $n - k$ transpositions:
     \[
     \begin{split}
         \sum_{i=1}^{k} l_{i} &= n  \\
-        \sum_{i=1}^{k} (l_{i} - 1) &= n - k \\
+        \sum_{i=1}^{k} (l_{i} - 1) &= n - k. \\
     \end{split}
-    \].
-
+    \]
     To see that at least $n - k$ are required, suppose $g \in S_{n}$
     and $g$ has $p$ cycles.
     We claim that for any transposition $(i j)$,
@@ -638,9 +634,9 @@ group. We first look at how bands behave under the homomorphism.
 A braid can have tremendous complexity and still have a
 trivial symmetric group representation, as long as the strands
 eventually end up where they began.
-Braids having a trivial image (elements of the kernel) are called \textit{pure braids},
-and one can form a quotient of the braid group,
-which contains only braids of this form.
+Braids having a trivial image in the symmetric group (elements of the kernel) are called \textit{pure braids},
+and one can form a quotient of the braid group
+containing only braids of this form.
 For example $x = 1^{2k} \in B_{3}$ is Figure $\ref{fig:generator-squared}$ repeated,
 and has rank as large as desired, but is a pure braid.
 So $rk_{S_{3}}(x) = 0$, but $rk(x) = 2k$. 
@@ -654,10 +650,10 @@ while considering signs.
 Positive generators increase winding in one direction.
 Negative generators decrease positive winding, or increase winding in the opposite direction.
 
-    For a braid word $w$ define $\gamma(w)$ 
-    to be the sum of the exponents in the standard generators of $w$.
-    So $\gamma(\sigma_{i}^{\epsilon}) = \epsilon$,
-    and we extend to all words by defining $\gamma(wv) = \gamma(w) + \gamma(v)$.
+For a braid word $w$ define $\gamma(w)$ 
+to be the sum of the exponents in the standard generators of $w$.
+So $\gamma(\sigma_{i}^{\epsilon}) = \epsilon$,
+and we extend to all words by defining $\gamma(wv) = \gamma(w) + \gamma(v)$.
 
 \begin{proposition}
     The function $\gamma \colon B_{n} \rightarrow \Z$ is a well-defined surjective homomorphism.
@@ -742,17 +738,22 @@ but they are chosen to be index 2 apart:
 \[
     \inv{1}^{k} 3^{k} \inv{5}^{k} 7^{k} \ldots 
 \]
-Because the rank lower bounds provided by exponential sum and permutations
+Because the rank lower bounds provided by exponential sums and permutations
 detect very different features,
-they complement each other well in estimating the rank.
+they complement each other well in estimating the rank of a braid.
 
 \subsection{When exponential sum is a tight bound}
 
-It's worth examining when the inequality $|\gamma(x)| \leq rk(x)$ is strict.
+It's worth examining when the inequality 
+\begin{equation}
+    \label{eq:rank-sum}
+    |\gamma(x)| \leq rk(x)
+\end{equation}
+is strict.
 Let $x = \prod_{i = 1}^{k} \alpha\sigma_{j_{i}}^{\epsilon_{i}}\alpha^{-1}$ 
 where $k = rk(x)$.
 Then $\gamma(x) = \sum_{i=1}^{k} \epsilon_{i}$.
-Whenever every exponent is positive, this sum will be $k$ and we will have equality
+Whenever every exponent is positive, this sum will be $k$ and (\ref{eq:rank-sum}) will be an equality
 (similarly if all the exponents are negative).
 It's only when there are ``mixed signs",
 or in other words ``canceling pairs" that we get inequality.
@@ -767,7 +768,7 @@ This is actually a property of integers:
 
 \begin{proof}
     Let $P$ denote the number of $+1$s in the sum
-    and $N$ denote the number of $-1$'s in the sum.
+    and $N$ denote the number of $-1$s in the sum.
     Then $m = P - N$ and $n = P + N$.
     So $m + n = 2P$.
 \end{proof}
@@ -795,6 +796,8 @@ in any minimal band presentation of $x \in B_{n}$.
 
 \begin{proof}
     Since $\gamma$ and $rk$ are well defined on braids, so is $\Phi$.
+    The equation is from previous proposition
+    where $k = rk(x)$ in a minimal band presentation.
 \end{proof}
 
 \section{Quasipositivity}
@@ -1602,7 +1605,7 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{proof}
     Let $U_{v}$ denote
-    the subtree of $T$ rooted at the node labelled $v$.
+    the subtree of $T$ rooted at the node labeled $v$.
     If $v$ is leaf,
     then $\rho(v) = |v| = L(U_{v})$.
     If $v$ is a split node with children $w$ and $u$
@@ -1728,7 +1731,7 @@ where $s_{i} = s_{i+1}^{-1}$
 and let $w' = s_{1} \cdots s_{i-1}s_{i+2}\cdots s_{n}$.
 It suffices to show $\rho(w') \leq \rho(w)$
 as $\xi(w)$ is derived from $w$ by repeatedly
-removing cancelling pairs until none remain.
+removing canceling pairs until none remain.
 
 Let $T$ be an optimal expression tree for $w$.
 Using Proposition \ref{prop:letters-in-tree}
@@ -1858,7 +1861,7 @@ To verify that all cases have been considered see Figure \ref{fig:case-analysis}
 \begin{figure}[h]
     \centering
 \begin{tabular}{ l l l | l}
-    $s_{i}$ & $s_{i+1}$ & Does either appear in a descendent of the other? & Case \\
+    $s_{i}$ & $s_{i+1}$ & Does either appear in a descendant of the other? & Case \\
     \hline
     leaf & leaf & no & 3 \\
     leaf & conjugate & $s_{i}$ descends & 6a \\
