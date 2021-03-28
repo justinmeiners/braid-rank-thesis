@@ -1010,6 +1010,7 @@ To discuss their complexities we will need the following definition:
     This is referred to as the \textbf{big O} complexity
     of the algorithm.
 \end{definition}
+
 However, there is wide gap between the existence of an algorithm
 in the theoretical sense, and having a practical implementation.
 Algorithms which optimize big O are useful for classifying complexity,
@@ -1072,7 +1073,7 @@ can be read off from the action.
 
     ~\\
     \textbf{Input:} Braid word $w = s_{1} \cdots s_{m} \in F_{n-1}$. ~\\
-    \textbf{Output:} Whether the word $w$ represents the identity braid. 
+    \textbf{Output:} Whether $[w]$ is the identity braid. 
 
 \begin{enumerate}
     \item Translate $\sigma_{1}, \dots, \sigma_{n-1}$
@@ -1118,7 +1119,7 @@ It's likely there are better numerical linear algebra solutions
 to this problem and these could strengthen this method.
 
 An additional limitation is that most implementations introduce floating point
-calculation because we define $q$ and $t$ to be specific real 
+calculations because we define $q$ and $t$ to be specific real 
 numbers. 
 So there is arithmetic error accumulation, and one must choose
 a tolerance level for checking whether a matrix is the identity.
@@ -1170,9 +1171,9 @@ acts as the identity element.
     ~\\
     \textbf{Input:}  A braid word $w = s_{1} \cdots s_{m} \in F_{n-1}$. 
     ~\\
-    \textbf{Output:}  Whether $w$ is an identity braid.
+    \textbf{Output:}  Whether $[w]$ is the identity braid.
 \begin{enumerate}
-    \item For each free generator $t \in \{ t_{1} , \ldots , t_{n} \}$:
+    \item For each generator $t \in \{ t_{1} , \ldots , t_{n} \}$:
 
     \begin{enumerate}
         \item Define a word $x = t \in F_{n-1}$.
@@ -1212,14 +1213,14 @@ as well as how long the offending pieces actually are.
 \end{proposition}
 
 \begin{proof}
-    First consider a single generator $x = t$.
+    Let $x = t$ where $t$ is a generator.
     We apply the action $l$ times to $x$.
     Each application is linear in the length of $x$,
     and can at most triple the length of the output.
-    So the length of $x$ is at most $\sum_{i=1}^{l} 3^{i} = 3^{l+1}/2 - 3/2 \in O(3^{l})$.
+    Thus the length of $x$ is at most $\sum_{i=1}^{l} 3^{i} = 3^{l+1}/2 - 3/2$ which has asymptotic order $3^{l}$.
     Free reduction is linear in the length of $x$.
     We must apply this $n$ times for the number of strands.
-    So the total time is in $O(3^{l}n)$.
+    So the algorithm is $O(3^{l}n)$.
 \end{proof}
 
 Thus, this method has the opposite scaling characteristic as Lawrence-Krammer.
@@ -1248,18 +1249,26 @@ We will restate some results from $\cite{dehornoy}$.
     or only negatively.
 \end{definition}
 
-\begin{proposition}
+\begin{example}
+    The braid word $\inv{3} 2 \inv{4} 2$ is reduced since the generator
+    of lowest index $2$ occurs only positively.
+    The braid word $\inv{1} \inv{2} 3 2 1$ is not reduced
+    because the generator of lowest index $1$ occurs
+    both positively and negatively.
+\end{example}
+
+\begin{proposition} (Proposition 1.1 of \cite{dehornoy}.)
     \label{reduced-is-not-identity}
-    A nonempty reduced braid word is not the identity
+    A nonempty reduced braid word is not the identity.
 \end{proposition}
 This appears plausible, but is not an easy result to show. 
 This fact can be used as a fast obstruction
-to being the identity, and suggests an algorithm,
+to being the identity, and suggests an algorithm;
 try to write a word in reduced form.
 
 \begin{proposition}
     \label{ordering-braids}
-    For braids $x, y$ we say $x < y$ 
+    For braids $x, y \in B_{n}$ we say $x < y$ 
     whenever $b^{-1}a$ has a reduced form such that the 
     generator of lowest index occurs only positively.
     Then the binary function $<$ is a total ordering for each braid group $B_{n}$.
