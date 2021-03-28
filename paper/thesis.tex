@@ -1905,15 +1905,15 @@ To verify that all cases have been considered see Figure \ref{fig:case-analysis}
 
 In \cite{quasipositive-3-braids} Orekov describes and an algorithm
 for detecting positive bands by ``plucking" generators out of a string.
-This same idea could possibly be adapted to compute rank.
-But, our framing and the definition of $\rho$ has the important advantage of being structured as a dynamic programming problem.
+This same idea could possibly be adapted to compute rank,
+but our framing and the definition of $\rho$ has the important advantage of being structured as a dynamic programming problem.
 This allows it to be computed very efficiently.
 
 Dynamic programming problems are those with inductive structure
 as described in the introduction:
-optimal results of sub-problems can be combined to form
-an overall optimal result. In addition, the sub-problems overlap,
-So results of smaller computations can be cached and reused.
+optimal solutions of sub-problems can be combined to form
+an overall optimal solution for the main problem. In addition, the sub-problems overlap,
+so results of smaller computations can be cached and reused.
 (See chapter 15 of \cite{clrs}.)
 
 To see that this occurs for $\rho$
@@ -1923,8 +1923,8 @@ the work twice, we can store this result and reuse it.
 
 A matrix is a convenient tool for storing and organizing these intermediate results.
 We first compute $\rho$ for the subwords
-of length one (which require no recursion), fill in entries of the matrix corresponding to them.
-Then fill in the matrix for larger subwords up to the entire word.
+of length one (which require no recursion), then fill in entries of the matrix corresponding to them.
+We then fill in the matrix for larger subwords up to the entire word.
 This is the opposite of how we tend to think of recursive functions.
 In detail, the process is: 
 
@@ -1941,7 +1941,7 @@ In detail, the process is:
     \item Fill in $m_{i, i} = 1$ for $i \in \{ 1, \ldots, k \}$
            to store $\rho$ for subwords of length 1 (base case).
 
-      \item For each $l \in \{ 2, \ldots k \}$ and $i \in \{ 1, \ldots, k - (l - 1) \}$
+      \item For each $l \in \{ 2, \ldots, k \}$ and $i \in \{ 1, \ldots, k - (l - 1) \}$
            fill in $m_{i, i + (l - 1)}$ by computing $\rho$ but referencing
            the entries of matrix $M$ in place of recursive calls: $\rho(s_{i} \cdots s_{j}) = m_{i, j}$.
      
@@ -1974,7 +1974,7 @@ The rank 2 can be read off from the top right entry.
 
 \label{chap:braid-rank}
 
-In this chapter we adapt the rank algorithm for computing
+In this chapter we adapt the algorithm for computing
 rank in free groups to be used for braid groups.
 This modified algorithm does not solve the rank problem for all braids,
 but computes close upper bounds for many.
@@ -2025,7 +2025,7 @@ way to use them.
 
 Specifically we will define a modified $\rho' \colon F_{n-1} \rightarrow \Z_{\geq 0}$ which operates
 on braid words.
-Let $w = s_{1} \ldots s_{m}$. Then define
+Let $w = s_{1} \ldots s_{m}$. Define
 \begin{equation}
 \rho'(w) =
 \begin{cases}
@@ -2120,10 +2120,10 @@ word,
 we can consider it's rank as an additional rule $M_{i}$ in $\rho'$.
 
 A bank of precomputed braids could be stored in a sorted table
-using Dehornoy ordering, 
+using Dehornoy ordering.
 Binary search can be used to find braids that match a subword, which is $O(log(n))$
 in the number of precomputed words.
-Precomputing can only improve the algorithm as $\rho$ will
+Precomputing can only improve the algorithm as $\rho'$ will
 not choose to use it
 if it does not lead to an optimal overall rank estimate.
 
@@ -2141,10 +2141,10 @@ But $\rho'$ doesn't perfectly compute rank.
 \begin{example}
     \label{ex:does-not-solve}
     Consider the braid word $w = \inv{2} \inv{2} 1 \inv{2} 1$\footnote{This braid is a subword of the irreducible braid in \cite{irreducible-braid}.}.
-    $w$ does not contain any commuting subwords
-    (other than commuting $\inv{2}$ with itself).
-    It also contains no subwords with are inverses of each other.
-    So conjugacy and commuting cannot be applied.
+    $w$ does not contain any subwords which commute
+    (other than $\inv{2}$ and itself).
+    It also contains no subwords which are inverses of each other.
+    So conjugacy and commutation cannot be applied.
     Therefore $\rho'(w) = 5$.
 
     However:
@@ -2173,9 +2173,9 @@ we applied them to the KnotInfo database \cite{knotinfo} which contains invarian
 
 One caveat to these tests is that due
 to Alexander's theorem, a knot can be represented by many distinct braids.
-We simply used the braids available in our database.
+We simply used the braids available in the KnotInfo database.
 Thus our rank upper bounds may be worse or better, depending on the braid that was chosen.
-The braids chosen in the KnotInfo database may also be biased in certain ways.
+The braids in the database may also be biased in certain ways.
 
 This database does not include rank,
 so there is no easy way to know exactly how accurate the values are,
@@ -2200,7 +2200,7 @@ From the slice genus and (\ref{eq:rank-and-ribbon-genus})
 we can obtain a lower bound on the rank.
 KnotInfo provides the slice genus for all
 but 21 of the 2977 knots.
-So when our computed rank upper bound for a braid is equal to the lower bound
+When our computed rank upper bound for a braid is equal to the lower bound
 from combining (\ref{eq:slice-and-ribbon-genus}) and (\ref{eq:rank-and-ribbon-genus}), we can conclude:
 \begin{itemize}
     \item The rank upper bound is actually equal to the rank.
@@ -2224,9 +2224,9 @@ They examine the word and try to ``see" bands within it.
 ``Seeing" works in the free group,
 but the complex interaction of the braid relations make the bands
 difficult to find. (See Example \ref{ex:does-not-solve}.)
-Imagine a word $w \in F_{n-1}$ having a minimal band presentation
-which is very dissimilar, having almost none of the same generators
-in corresponding locations (it's worth thinking about a Cayley graph for this situation as well).
+Imagine a word $w \in F_{n-1}$ whose minimal band presentation
+is very dissimilar, having almost none of the same generators
+in corresponding locations (it's worth visualizing a Cayley graph for this situation).
 It might be difficult to construct the band presentation
 from subwords, or by applying a sequence of minor transformations to the word.
 Given these observations and the fact that representation can vary greatly,
@@ -2251,9 +2251,9 @@ In this chapter we examine this approach from a complexity theory perspective.
 \end{definition}
 
 Decision problems represent mathematical questions which 
-can be solved by answering a predicate.
+can be answered by computing a predicate.
 As a set, $A$ is the set of things for which the predicate is true.
-The domain is countable so the inputs can be encoded as natural numbers
+The domain is countable so the input values in $D$ can be encoded as natural numbers
 (or equivalently binary strings).
 
 \begin{definition}
@@ -2266,8 +2266,8 @@ The domain is countable so the inputs can be encoded as natural numbers
     A decision problem $A \subseteq D$ is \textbf{semi-decidable} if there exists an algorithm
     which returns ``true'', for any input $x \in A$,
     but for any input $x \in D \setminus A$ it does not terminate.
-    Semi-decidable problems are also called \textbf{recursively enumerable sets}.
-    (See Chapter 4.3 of \cite{logical-foundations-of-math}.)
+    Semi-decidable problems are also called \textbf{recursively enumerable sets}
+    (see Chapter 4.3 of \cite{logical-foundations-of-math}).
 \end{definition}
 
 Because complexity and computability results focus on decision problems,
