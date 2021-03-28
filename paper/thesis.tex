@@ -210,7 +210,7 @@ beyond this work. These results are not relied upon.
 
 Rank tells us several elementary properties of braids:
 \begin{itemize}
-    \item It solves the word problem $rk(x) = 0 \Leftrightarrow x = e$
+    \item It solves the word problem $rk(x) = 0 \Leftrightarrow x$ is the identity braid.
     \item It is an invariant of conjugacy classes.
     \item It tells us whether a braid is quasipositive.
           This can in turn help detect quasipositive knots.
@@ -227,7 +227,7 @@ We will give a brief of this relationship here.
 \end{definition}
 
 Due to a famous theorem of Alexander, every knot 
-can be constructed from a braid through an operation
+can be represented as a braid through an operation
 called \textit{closure}.
 However, this does not give a 1-1 correspondence.
 A single knot may be represented by many distinct braids.
@@ -278,7 +278,7 @@ whose boundary is $K$.
 Requiring the ribbon surface to be in $S^{3}$
 limits the degrees of freedom of a ribbon surface in comparison to a slice surface.
 But requiring an immersion instead of an embedding simultaneously relaxes them.
-So we might wonder if either surface type requires a larger minimal genus than the other
+So we might wonder if either surface type requires a larger genus than the other
 to compensate for either restriction.
 One relationship is clear:
 \begin{proposition}
@@ -297,7 +297,7 @@ Therefore
 \begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces}.)
     Anytime $K$ is represented by the closure of a braid $\widehat{x}$ 
     and $x \in B_{n}$ has a band presentation: $(\alpha_{1} \delta_{1} \alpha_{1}^{-1}, \ldots, \alpha_{k} \delta_{k} \alpha_{k}^{-1})$,
-    then a ribbon surface can be constructed for $K$ by reading off the bands,
+    then a ribbon surface can be constructed for $K$ 
     whose Euler characteristic $\chi$ depends only
     on the number of bands $k$.
     Specifically: $\chi = n - k$. 
@@ -312,6 +312,13 @@ Specifically:
     \label{eq:rank-and-ribbon-genus}
     g_{r}(K) \leq \frac{1 + rk(x) - n}{2}.
 \end{equation}
+
+Furthemore, there is always some braid representation making this an equality.
+\begin{proposition} (Follows from Section 3 and Section 5 of \cite{rudolph-braided-surfaces}.)
+    For a knot $K$ there exists a braid $x \in B_{n}$ whose
+    closure $\widehat{x}$ represents $K$ and
+    $g_{r}(K) = \frac{1 + rk(x) - n}{2}$.
+\end{proposition}
 
 So rank can be used in a few important ways:
 \begin{itemize}
@@ -332,7 +339,6 @@ So rank can be used in a few important ways:
           we can conclude that $K$ has slice
           and ribbon surfaces which are both discs.
           Such knots have special names:
-
           \begin{definition}
               A \textbf{slice knot} is a knot with slice genus 0.
           \end{definition}
