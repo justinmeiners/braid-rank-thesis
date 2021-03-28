@@ -898,8 +898,8 @@ to the free group.
     To see the parity of length also matches
     we consider the homomorphism $\phi \colon B_{n} \rightarrow S_{n}$.
     Every permutation is even or odd.
-    This is an invariant on the ways you can write a
-    permutation as a product of transpositions.
+    This is an invariant on the ways a
+    permutation can be written as a product of transpositions.
     If the braid word is written as $w = \delta_{1} \cdots \delta_{n}$
     where each $\delta_{i}$ is a standard generator.
     Then $\phi([w]) = \phi(\delta_{1}) \cdots \phi(\delta_{n})$ 
@@ -984,19 +984,19 @@ A variety of different methods exist, all with various strengths.
 To discuss their complexities we will need the following definition:
 \begin{definition}
     \cite{clrs}
-    For functions $f, g \colon \mathbb{R} \rightarrow \mathbb{R}$ 
+    For functions $f, g \colon \Z_{\geq 0} \rightarrow \mathbb{R}$ 
     we say \textbf{$f$ has asymptotic upper bound $g$} if
     there exists constants $c, d \in \mathbb{R}$
-    so that $0 \leq f(x) \leq cg(x)$ for all $x \geq d$.
+    so that $0 \leq f(n) \leq cg(n)$ for all $n \geq d$.
     The set of all functions that have asymptotic upper bound $g$
-    is denoted $O(g(x))$.
+    is denoted $O(g(n))$.
 \end{definition}
 \begin{definition}
-    For an input parameter $n$
+    For an input parameter $n \in \Z_{\geq 0}$
     we say an algorithm is $O(g(n))$
     if the number of steps required to execute
     the algorithm as a function of $n$ is in $O(g(n))$.
-    This is sometimes called the \textbf{big O} complexity
+    This is referred to as the \textbf{big O} complexity
     of the algorithm.
 \end{definition}
 However, there is wide gap between the existence of an algorithm
@@ -1393,7 +1393,7 @@ This is a straightforward observation:
 \end{corollary}
 
 \begin{proof}
-    Appending minimal band presentations for $w$ and $v$
+    Concatenating minimal band presentations for $w$ and $v$
     gives a band presentation for $wv$, but it may not be minimal.
 \end{proof}
 
