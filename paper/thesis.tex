@@ -838,13 +838,10 @@ such as one based on the Homfly polynomial. }
 
 \section{Upper Bounds from Quotients}
 
-Similar to finding quotients of $B_{n}$
-we can also consider groups for which $B_{n}$ is a quotient.
-Without considering the details of the group
-we can't define what the bands are,
-other than requiring their images
-to be bands in $B_{n}$.
-
+Just as we can consider the rank of elements in quotients of $B_{n}$
+we can also consider the rank in groups $G$ for which $B_{n}$ is a quotient.
+Once again we need to define which elements of $G$
+are bands.
 \begin{proposition}
     \label{prop:upper-bounds-from-quotient}
     Let $\psi \colon G \rightarrow B_{n}$ be a surjective homomorphism.
@@ -873,7 +870,9 @@ The natural candidate to apply this proposition to is the free group.
     such that $h = \prod_{i=1}^{k} g_{i}s_{i}g_{i}^{-1}$
     where each $s_{i}$ is a positive or negative generator.
 \end{definition}
-
+Thus the definition of rank in the free group depends on the choice
+of generators, just as rank in the braid group is defined in terms 
+of the standard generators.
 However, computing the rank in the free group, is not as straightforward
 as it was in the symmetric group or the abelianization of $B_{n}$.
 In Chapter \ref{chap:free-rank} we
@@ -881,7 +880,7 @@ present a non-trivial algorithm for solving this problem.
 
 Unlike computing lower bounds in the quotient,
 we don't actually need to solve the rank problem to get a bound.
-Any band decomposition, whether it's minimal or not, gives
+Proposition \ref{prop:upper-bounds-from-quotient} shows that any band decomposition, whether it's minimal or not, gives
 us an upper bound on the rank in the braid group.
 So, partial results can still be useful.
 Other useful groups could perhaps be
@@ -898,14 +897,14 @@ to the free group.
 \end{corollary}
 
 \begin{proof}
-    We first apply Proposition \ref{prop:positive-negative-bands}:
-    $rk([w]) + \gamma([w]) = 2P([w])$ so is even.
+    By Proposition \ref{prop:positive-negative-bands}
+    $rk([w]) + \gamma([w]) = 2\Phi([w])$ is even.
     Therefore $rk([w])$ must be odd whenever $\gamma([w])$ is odd.
     Similarly, $rk([w])$ must be even whenever $\gamma([w])$ is even.
 
 
-    To see the parity of length also matches
-    we consider the homomorphism $\phi \colon B_{n} \rightarrow S_{n}$.
+    To see that the parity of length also matches,
+    consider the homomorphism $\phi \colon B_{n} \rightarrow S_{n}$.
     Every permutation is even or odd.
     This is an invariant on the ways a
     permutation can be written as a product of transpositions.
@@ -913,6 +912,9 @@ to the free group.
     where each $\delta_{i}$ is a standard generator.
     Then $\phi([w]) = \phi(\delta_{1}) \cdots \phi(\delta_{n})$ 
     writes $\phi([w])$ as a product of $n$ transpositions.
+    Similarly the image of a band presentation of length $k = rk([w])$ writes
+    $\phi([w])$ as a product of $k$ transpositions.
+    Therefore $rk([w])$ and the length of $w$ have the same parity.
 \end{proof}
 
 Given lower and upper bounds on rank,
@@ -967,9 +969,9 @@ We provide an additional counterexample which reveals why this is the case.
 \begin{example}
     The braid word $w = 1 2 1$ has length 3 so $rk([w]) \in \{ 1, 3 \}$.
     The exponential sum is $3$ so $rk([w]) = 3$.
-    $(1)(2)(1)$ is one possible band presentation.
-    $(2)(1)(2)$ is another due to the braid group
-    relationship $212 = 121$.
+    The trivial bands $(1)(2)(1)$ give one possible band presentation.
+    Another band presentation $(2)(1)(2)$ is due to the 
+    relation $212 = 121$.
     They are distinct because $2 \neq 1$.
 \end{example}
 
