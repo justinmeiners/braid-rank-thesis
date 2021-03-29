@@ -113,8 +113,8 @@
     The \textbf{braid group} on $n$ strands is defined by the following standard presentation:
     \[
     B_{n} = \langle \sigma_{1}, \ldots \sigma_{n - 1} \colon \sigma_{i}\sigma_{i + 1}\sigma_{i} = \sigma_{i + 1} \sigma_{i} \sigma_{i + 1},
-     \sigma_{j}\sigma_{i} = \sigma_{i}\sigma_{j} \text{ whenever $|i - j| \geq 2$ } \rangle
-    \].
+     \sigma_{j}\sigma_{i} = \sigma_{i}\sigma_{j} \text{ whenever $|i - j| \geq 2$ } \rangle.
+    \]
     Each $\sigma_{i}$ is referred to as a \textbf{positive standard generator}.
     Elements of $B_{n}$ are called \textbf{($n$-strand) braids}.
 \end{definition}
@@ -259,7 +259,7 @@ whose boundary is $K$.
     \centering
     \def\svgwidth{6cm}
     \input{figures/ribbon-singularity.pdf_tex}
-    \caption{Ribbon singularity}
+    \caption{Ribbon singularity.}
 
     The solid lines represent the boundary $K$
     of the ribbon surface. The dotted line
@@ -468,7 +468,7 @@ So for any topological braid $M$ on $n$ strands, the boundary $S \cap D^{2} \tim
     \centering
     \def\svgwidth{10cm}
     \input{figures/topological-braid.pdf_tex}
-    \caption{Topological braid in $D^{2} \times I$}
+    \caption{Topological braid in $D^{2} \times I$.}
     \label{fig:topological-braid}
 \end{figure}
 
@@ -498,7 +498,7 @@ the $i$th strand crosses over the $(i + 1)$th strand.
     \centering
     \def\svgwidth{4cm}
     \input{figures/braid-standard-generator.pdf_tex}
-    \caption{Standard generator $\sigma_{1}$ in $B_{3}$}
+    \caption{Standard generator $\sigma_{1}$ in $B_{3}$.}
     \label{fig:standard-generator}
 \end{figure}
 Multiplying braids corresponds to concatenating these pictures.\footnote{We follow a right-to-left convention like function composition. The right-most generator
@@ -515,7 +515,7 @@ the resulting permutation by tracing a strand from it's start point $i$, to it's
     \centering
     \def\svgwidth{4cm}
     \input{figures/braid-generator-squared.pdf_tex}
-    \caption{The braid $\sigma_{1}^{2}$ in $B_{3}$}
+    \caption{The braid $\sigma_{1}^{2}$ in $B_{3}$.}
     \label{fig:generator-squared}
 \end{figure}
 
@@ -1564,7 +1564,7 @@ application has been chosen in proofs.
     \centering
     \def\svgwidth{6cm}
     \input{figures/expression-tree.pdf_tex}
-    \caption{Expression tree for $abca^{-1}b$}
+    \caption{Expression tree for $abca^{-1}b$.}
     \label{fig:expression-tree}
 \end{figure}
 
@@ -1847,7 +1847,7 @@ If we can show $\rho(v') \leq \rho(v)$
                  Therefore:
                     \[
                         \rho(v) = \rho(w_{1}) + \rho(s_{i})
-                               = \rho(w_{1}) + 1
+                               = \rho(w_{1}) + 1.
                     \]
                     After reduction:
                     \[
@@ -1901,7 +1901,7 @@ To verify that all cases have been considered see Figure \ref{fig:case-analysis}
     conjugate & conjugate & $s_{i+1}$ descends & 7b \\
     conjugate & conjugate & no & 2\\
 \end{tabular}
-    \caption{Enumeration of cases for Theorem \ref{thm:invariant-free-reduction}}
+    \caption{Enumeration of cases for Theorem \ref{thm:invariant-free-reduction}.}
     \label{fig:case-analysis}
 \end{figure}
 
@@ -1967,7 +1967,7 @@ In detail, the process is:
 
 \begin{algorithm}
     ~ \\
-    \textbf{Input:} A word $w = s_{1} \cdots s_{k} \in F_{n}$
+    \textbf{Input:} A word $w = s_{1} \cdots s_{k} \in F_{n}$.
     ~\\
     \textbf{Output:} $rk_{F}(w)$. 
 
@@ -2029,14 +2029,14 @@ The basic relationships used to construct the algorithm for chapter 4 hold for b
 groups as well, where their proofs are the same.
 \begin{proposition}
     For $x, \alpha \in B_{n}$
-         $rk(\alpha x \alpha^{-1}) = rk(x)$   
+         $rk(\alpha x \alpha^{-1}) = rk(x)$.
 \end{proposition}
 \begin{proof}
  Same as Proposition \ref{conjugating}.
 \end{proof}
 \begin{proposition}
     For $x, y \in B_{n}$,
-    $rk(xy) \leq rk(x) + rk(y)$ 
+    $rk(xy) \leq rk(x) + rk(y)$.
 \end{proposition}
 \begin{proof}
   Same as Corollary \ref{splitting},
@@ -2139,9 +2139,9 @@ Specifically when generators are index $2$ or more apart they commute.
 Note that this is bound does not follow from previous techniques.
 \begin{example}
 Consider the word $4 6 \inv{2} 6 \inv{4} 6 2$.
-It's sum of distinct exponents is $3$.
+Its sum of distinct exponents is $3$.
 But,
-$\rho'(4 6 \inv{2} 6 \inv{4} 6 2) = \rho'(4 6) + \rho'(\inv{2} 6 \inv{4} 6 2) = 2 + \rho'(6 \inv{4} 6) = 5$
+$\rho'(4 6 \inv{2} 6 \inv{4} 6 2) = \rho'(4 6) + \rho'(\inv{2} 6 \inv{4} 6 2) = 2 + \rho'(6 \inv{4} 6) = 5$.
 \end{example}
 
 A possible algorithm for detecting this
@@ -2904,7 +2904,7 @@ what ultimately matters is how many templates are produced.
     which we have a bound on:
     Therefore:
     \[
-        \frac{|\beta_{\phi}|^{k}}{|T_{k}|} \geq \frac{ {n \choose 2}^{k} }{ {n \choose 2}^{k-1} } = {n \choose 2}
+        \frac{|\beta_{\phi}|^{k}}{|T_{k}|} \geq \frac{ {n \choose 2}^{k} }{ {n \choose 2}^{k-1} } = {n \choose 2}.
         \qedhere
     \]
 \end{proof}
@@ -3019,9 +3019,9 @@ templates and the exponential sum templates.
 
 \begin{proposition}
 The speedup factor for using signed permutation templates is just the product of each
-separate method's speedup factor.
+separate method's speedup factor:
 \[
-    \frac{2^{k} {n \choose 2}}{ { k \choose \floor{\frac{k + 1}{2}}}}
+    \frac{2^{k} {n \choose 2}}{ { k \choose \floor{\frac{k + 1}{2}}}}.
 \]
 \end{proposition}
 
@@ -3083,17 +3083,17 @@ would compare $1029^{3} = 1,089,547,389$ band presentations.
 
 The signed permutation buckets each have about 10 bands after removing duplicates:
 \begin{itemize}
-    \item $C_{(1 2)}$ has 9 bands
-    \item $C_{-(1 2)}$ has 9 
-    \item $C_{(1 3)}$ has 10 
+    \item $C_{(1 2)}$ has 9 bands.
+    \item $C_{-(1 2)}$ has 9.
+    \item $C_{(1 3)}$ has 10.
     \item \ldots
 \end{itemize}
 
 We enumerate each $3$-template for $x$.
 There are 27 total:
 \begin{itemize}
-    \item $-(1 3), -(1 2), (1 2)$ has 810 presentations to check
-    \item $(1  2), -(1 3), -(2  3)$ has 810
+    \item $-(1 3), -(1 2), (1 2)$ has 810 presentations to check.
+    \item $(1  2), -(1 3), -(2  3)$ has 810.
     \item \ldots
 \end{itemize}
 After checking all of these (fewer than $27,000$ total band presentations), we find $5$ band
