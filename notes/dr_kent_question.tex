@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.0in]{geometry}
+
+\title{Note for Dr. Kent}
+\author{Justin Meiners}
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+
+\section*{Understanding of Concern}
+
+Since many different sets can be used as the generating
+set for a free group, its possible to choose
+one so that a given word has lower rank.
+Say we pick $F_{3} = \langle ab, b, c \rangle$,
+then the word $x = abc$ only has rank 1 in the free group, when normally it might be 3.
+Perhaps we can construct a surjective homomorphism to the braid group $\phi \colon F_{n-1} \rightarrow B_{n}$ 
+so that $rk_{F_{n-1}}(x) < rk(\phi(x))$ 
+
+I believe any of these three comments may address this. 
+
+\section*{Comment 1}
+
+Rank in the free group is defined in terms of the generating set
+and rank in the braid group is defined in terms of the standard generators.
+In order to get an upper bound on the rank in the braid 
+group $B_{n}$ it must be the case
+that the the image of the free generators
+are the standard generators in the braid group.
+I believe this requirement alone prevents such
+a homomorphism from being constructed.
+
+See Proposition 2.22.
+The  proof is really simple.
+Images of band presentations in the free group give us band presentations in the braid group, and its not clear to me what could go wrong.
+
+\section*{Comment 2}
+
+The homomorphism between the free group and the braid group is not actually used to construct the upper bounds method.
+In chapter 5 I use the algorithm for rank in the free group only as a guide to develop the method for the braid group.
+That the algorithm gives an upper bound only relies on the fact that splitting and conjugating give upper bounds on the rank in the braid group, just as they do in the free group
+(Propositions 5.1 and Propositions 5.2).
+If those hold we conclude the algorithm
+gives an upper bound on rank.
+
+\section*{Comment 3}
+
+Dr. Humphries mentioned a result about how standard
+generators behave under automorphisms of the braid group.
+Classifying endomorphisms of the braid group is quite a project,
+but Castel's work\footnote{Geometric representations of the braid groups. \url{https://arxiv.org/pdf/1104.3698.pdf}}
+shows that for an automorphism in $B_{n}$ where $n \geq 6$
+standard generators are sent to conjugates of standard generators,
+or their inverses (see Theorem 4 case ii.)
+I believe the requirement that $n \geq 6$ is just for the general statement
+about all endomorphisms.
+
+If this holds for $n \geq 3$ rank would be preserved by automorphisms,
+as conjugating each generator in a band still gives a band in the same generators.
+
+I am not planning to cite this in the paper unless the other comments are not sufficient.
+
+
+\end{document}
+
