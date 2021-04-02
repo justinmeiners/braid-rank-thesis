@@ -1401,7 +1401,7 @@ Our method additionally solves this problem.
 Algorithms are often designed using mathematical induction.  
 A problem may at first appear intractable due to a large number of cases and variations.
 To solve it, one first considers how to divide up the problem into smaller instances.
-Assuming those smaller instances can be solved, can they be combined in a way to solve the a full problem?
+Assuming those smaller instances can be solved, can they be combined in a way to solve the full problem?
 If so, then a solution is complete, just recursively combine smaller solutions
 down to a trivial base case (see chapter 2.3 of \cite{clrs}).
 
@@ -1494,7 +1494,7 @@ This next section makes the notion of "optimal choices" precise and proves
     Let $W_{n}$ be the set of finite strings on a set of $n$ letters $\{ t_{1}, \ldots, t_{n} \}$ 
     and their inverses $\{ t_{1}^{-1}, \ldots, t_{n}^{-1} \}$
     including the empty string.
-    Members of $W_{n}$ are called \textbf{strings} on $n$-generators.
+    Elements of $W_{n}$ are called \textbf{strings} on $n$-generators.
 \end{definition}
 
 Forgetting the group structure on $F_{n}$,
@@ -1544,13 +1544,13 @@ application has been chosen in proofs.
     satisfying the following constraints:
     \begin{itemize}
     \item The root node is labeled $w$.
-    \item If a node is labeled $v$ and length of $v$ is 1 or 0.
+    \item If a node is labeled $v$ and the length of $v$ is 1 or 0
     then it must be a leaf.
     \item Otherwise a node labeled $v$ must have exactly one
     or two children.
     \begin{itemize}
     \item If $v$ has one child $v'$ then $v = sv's^{-1}$ for some
-    generator $s$.
+   letter $s$.
             We call $v$ a \textbf{conjugate node}.
     \item If $v$ has two  children $w_{1}, w_{2}$ then $w = w_{1}w_{2}$
         and $w_{1}$ and $w_{2}$ must not be empty words.
@@ -1591,34 +1591,35 @@ of leaves in the tree $T$ having nonempty labels.
 \begin{proposition}
     \label{prop:replace-node}
     Suppose $w = w_{1} v w_{2} \in W_{n}$
-    and $w' = w_{1} v' w_{2} \in W_{n}$
-    and $v'$ has an expression tree $U'$.
-    If $T$ is an expression tree
-    for $w$ and $v$ is a node with subtree $U$,
+    and $w' = w_{1} v' w_{2} \in W_{n}$ where $w_{1}, w_{2}, v, v' \in W_{n}$.
+    If $v'$ has an expression tree $U'$,
+    $T$ is an expression tree for $w$,
+    and $v$ is a node with subtree $U$,
     then we can form an expression tree $T'$
-    for $w'$ where $ L(T) - L(T') = L(U') - L(U)$.
+    for $w'$ where $ L(T') - L(T) = L(U') - L(U)$.
 \end{proposition}
 
 \begin{proof}
-    Form $T'$ by replacing the subtree $U$ with $v'$s tree $U'$. 
-    Let $p$ be the parent for $v'$.
+    Form $T'$ by replacing the subtree $U$ with $U'$. 
+    If $v'$ has no parent then we are done.
+    Otherwise, let $p$ be the parent for $v'$.
     Suppose $p$ is a split node.
-    Then $p = w_{1} v$ or $p = w_{1} v$
-    and the other child for $p$ is $w_{1}$.
-    Assuming $v'$ has nonzero length, replace $p$ with $w_{1} v'$ or $v' w_{1}$.
+    Then for some subword $u$ of $w$, $p = u v$ or $p = v u$
+    and the other child of $p$ is $u$.
+    Assuming $v'$ has nonzero length, replace $p$ with $u v'$ or $v' u$.
     Otherwise $v'$ is an empty string.
     Remove the split node $p$
-    and replace it with its child $w_{1}$.
+    and replace it with its child $u$.
     Suppose $p$ is a conjugate node,
-    so $p = svs^{-1}$.
+    Then $p = svs^{-1}$ where $s$ is some letter.
     Replace $p$ with $sv's^{-1}$.
 
-    We can continue similar replacements for every ancestor of $v'$
+    We can continue making similar replacements for every ancestor of $v'$
     to form $T'$.
     The resulting tree is an expression tree for $w'$.
     The leaves in $U$ were replaced with those in $U'$.
     All other leaves were unchanged.
-    Therefore $L(T) - L(T')  = L(U') -  L(U)$.
+    Therefore $L(T') - L(T)  = L(U') -  L(U)$.
 \end{proof}
 
 
