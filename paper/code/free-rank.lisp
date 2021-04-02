@@ -14,7 +14,6 @@
   (let* ((word (coerce free-word 'vector))
          (N (length word))
          (matrix (make-array (list N N)
-                             :element-type 'fixnum
                              :initial-element 0))
          (memo-lookup (lambda (start end)
                         (aref matrix start (- end 1))))) 

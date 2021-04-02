@@ -41,7 +41,6 @@
 (defun upper-bound (braid)
   (let* ((N (length braid))
          (matrix (make-array (list N N)
-                             :element-type 'fixnum
                              :initial-element 0))
          (memo-lookup (lambda (start end)
                         (if (= start end) 
