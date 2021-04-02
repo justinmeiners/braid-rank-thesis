@@ -1656,8 +1656,8 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{corollary}
     \label{cor:tree-substitution}
-    Suppose $w_{1}vw_{2}$ has an optimal expression
-    tree $T$ containing $v$ as a node
+    Suppose $w_{1}, w_{2}, v, v' \in W_{n}$,
+    $w_{1}vw_{2}$ has an optimal expression tree $T$ with a node labeled $v$,
     and $\rho(v') \leq \rho(v)$,
     then $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
 \end{corollary}
@@ -1669,10 +1669,10 @@ of leaves in the tree $T$ having nonempty labels.
     So we can form a new expression
     tree $T'$ by replacing 
     the subtree rooted at $v$
-    with $U$ and relabeling as in Proposition \ref{prop:replace-node}.
+    with $U'$ and relabeling as in Proposition \ref{prop:replace-node}.
     The result is an expression tree $T'$ for $w_{1}v'w_{2}$
     where $L(T') \leq L(T)$.
-    so $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$
+    Therefore $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
 \end{proof}
 
 \begin{proposition}
