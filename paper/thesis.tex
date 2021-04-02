@@ -1659,7 +1659,7 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{corollary}
     \label{cor:tree-substitution}
-    Suppose $w_{1}, w_{2}, v, v' \in W_{n}$,
+    If $w_{1}, w_{2}, v, v' \in W_{n}$,
     $w_{1}vw_{2}$ has an optimal expression tree $T$ with a node labeled $v$,
     and $\rho(v') \leq \rho(v)$,
     then $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
@@ -1680,12 +1680,12 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{lemma}
     \label{lem:reorder-tree}
-    Suppose $T$ is an optimal tree for
+    If $T$ is an optimal tree for
     $w = \cdots v_{1}v_{2} \cdots$
-    containing nodes with labels $v_{1}, v_{2} \in W_{n}$.
-    Then there exists an optimal tree $T'$
-    for $w$ with a split node $v_{1}v_{2}$
-    and it's children are $v_{1}$ and $v_{2}$.
+    containing nodes with labels $v_{1}, v_{2} \in W_{n}$,
+    then there exists an optimal tree $T'$
+    for $w$ with a split node $v_{1}v_{2}$,
+    and its children are $v_{1}$ and $v_{2}$.
 \end{lemma}
 
 \begin{proof}
