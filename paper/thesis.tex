@@ -372,7 +372,7 @@ A bar over top will be used to indicate inverse, so $\sigma_{i}^{-1} = \inv{i}$.
 For example, $\sigma_{1}\sigma_{2}\sigma_{2}^{-1}$ will be written as
 $12\inv{2}$.
 
-\section{More about Rank}
+\section{More about rank}
 
 \begin{proposition} \cite{rudolph-braided-surfaces}
     \label{prop:same-conjugacy-class}
@@ -398,7 +398,7 @@ However, in practice we can shorten the conjugate lengths by using other generat
 When we consider the analogous rank problem in other groups,
 this proposition typically does not hold.
 
-\section{Lower bounds from Quotients}
+\section{Lower bounds from quotients}
 
 Braid groups are very complex and can be difficult to study directly.
 However, questions of interest can often be answered by looking
@@ -449,7 +449,7 @@ Because rank in $H$ gives the shortest such presentation, $rk_{H}(\phi(x)) \leq 
 To apply this fact, we want to find quotients
 where the rank can be computed easily.
 
-\section{Symmetric Group}
+\section{Symmetric group}
 
 \label{chap:symmetric-group}
 
@@ -644,7 +644,7 @@ For example $x = 1^{2k} \in B_{3}$ is Figure $\ref{fig:generator-squared}$ repea
 and has rank as large as desired, but is a pure braid.
 So $rk_{S_{3}}(x) = 0$, but $rk(x) = 2k$. 
 
-\section{Exponential Sum}
+\section{Exponential sum}
 
 We would like to find a quotient which captures
 the ``winding" overlooked by the permutation representation.
@@ -855,7 +855,7 @@ on the rank can be immediately improved for any braid
 representing $K$.\footnote{ KnotInfo\cite{knotinfo} cites a few examples,
 such as one based on the Homfly polynomial. }
 
-\section{Upper Bounds from Quotients}
+\section{Upper bounds from quotients}
 
 Just as we can consider the rank of elements in quotients of $B_{n}$
 we can also consider the rank in groups $G$ for which $B_{n}$ is a quotient.
@@ -906,7 +906,7 @@ Other useful groups could perhaps be
 formed by gradually adding in relations of the braid group 
 to the free group.
 
-\section{Rank Parity}
+\section{Rank parity}
 
 \begin{corollary}
     \label{cor:rank-parity}
@@ -939,7 +939,7 @@ to the free group.
 Given lower and upper bounds on rank,
 this fact cuts the possible values for the rank in half.
 
-\section{Examples of Computing Rank}
+\section{Examples of computing rank}
 
 The theorems we have proved are simple and straightforward,
 but already they provide us with great
@@ -1043,7 +1043,7 @@ It is included to record and justify the specific methods we use in our algorith
 Additionally, we hope it can help bridge the gap between the theory 
 and actual implementation of the code. 
 
-\section{Lawrence-Krammer Representation}
+\section{Lawrence-Krammer representation}
 
 The Lawrence-Krammer representation allows braid
 generators to be transformed into matrices,
@@ -1147,7 +1147,7 @@ it could represent $q$ and $t$ symbolically.
 The matrix entries would then be rational functions of $q$ and $t$ with integer
 coefficients, but this introduces its own overhead.
 
-\section{Action on the Free Group.}
+\section{Action on the free group.}
 
 \begin{proposition}
 \cite{action-on-free-group}
@@ -1251,7 +1251,7 @@ by a constant factor, the algorithm has complexity $O(l^{2}n)$.
 In practice we found it to be faster than Lawrence-Krammer
 in most every case, especially for long words (which is counterintuitive).
 
-\section{Dehornoy Handle Reduction}
+\section{Dehornoy handle reduction}
 
 Switching focus a bit,
 Dehornoy's handle reduction \cite{dehornoy}
@@ -1366,7 +1366,7 @@ and a word problem solution, in one algorithm.
 
 \iffalse
 
-\section{Automated Theorem Proving}
+\section{Automated theorem proving}
 
 Automated theorem proving systems based on term rewriting can be a useful way to implement goal
 oriented search algorithms in group theory and combinatorics.
@@ -1398,7 +1398,7 @@ In \cite{quasipositive-3-braids} Orekov describes
 an algorithm for detecting quasipositivity in the free group.
 Our method additionally solves this problem.
 
-\section{Inductive Structure of Rank}
+\section{Inductive structure of rank}
 
 Algorithms are often designed using mathematical induction.  
 A problem may at first appear intractable due to a large number of cases and variations.
@@ -1491,7 +1491,7 @@ upper bound is actually equal to the rank.
 This next section makes the notion of "optimal choices" precise and proves
  its correctness.
 
-\section{Optimal Splitting and Conjugating}
+\section{Optimal splitting and conjugating}
 
 \begin{definition}
     Let $W_{n}$ be the set of finite strings on a set of $n$ letters $\{ t_{1}, \ldots, t_{n} \}$ 
@@ -1943,7 +1943,7 @@ To verify that all cases have been considered see Figure \ref{fig:case-analysis}
     By Proposition \ref{upper-bounds} we have equality.
 \end{proof}
 
-\section{Dynamic Programming Algorithm}
+\section{Dynamic programming algorithm}
 
 In \cite{quasipositive-3-braids} Orekov describes and an algorithm
 for detecting positive bands by ``plucking" generators out of a string.
@@ -2028,7 +2028,7 @@ To demonstrate it's effectiveness we use it in an empirical
 test of recognizing quasipositive braids and knots for which their ribbon genus
 and slice genus coincide
 
-\section{Identifying Solvable Subwords}
+\section{Identifying solvable subwords}
 
 The basic relationships used to construct the algorithm for chapter 4 hold for braid
 groups as well, where their proofs are the same.
@@ -2078,7 +2078,7 @@ Let $w = s_{1} \ldots s_{m}$. Define
 where each $M_{i}$ is some special
 case we can improve upon, just as the conjugacy rule $C$ was applied in the free group.
 
-\section{Identifying Conjugate Words}
+\section{Identifying conjugate words}
 
 Our first heuristic for improvement is to focus less on individual generators in the representation
 and more on the structure of the braids.
@@ -2116,7 +2116,7 @@ Choosing the longest is somewhat of a heuristic.
 There could possibly be a better choice which would lead to an overall smaller result for $\rho'$,
 but theoretically it's supported by the fact that rank is a conjugacy invariant,
 
-\section{Commuting Words}
+\section{Commuting words}
 
 The free group does not have any commuting relations,
 but the braid group does.
@@ -2174,7 +2174,7 @@ the algorithm to a particularly challenging braid.
 Subwords of interest can be analyzed on paper, or using our later search algorithms.
 Improvements in those parts would in turn improve the rank estimate.
 
-\section{Example of a Word it Does Not Solve}
+\section{Example of a word it does not solve}
 
 The special cases we have reviewed for $\rho'$ greatly improve the rank upper bounds
 for braids in comparison with $\rho$ for the free group.
@@ -2207,7 +2207,7 @@ there is no obvious pattern, like in the free group.
 Inserting a seemingly unrelated identity word
 and applying some relations gave a better rank estimate.
 
-\section{Testing Against KnotInfo Database}
+\section{Testing against KnotInfo database}
 \begin{sloppypar}
 To test the effectiveness of our bounding methods,
 we applied them to the KnotInfo database \cite{knotinfo} which contains invariants and properties for 2977 knots.
@@ -2278,7 +2278,7 @@ An alternative approach to the problem is to ignore facts about the specific rep
 of the braid word, and instead try to generate a minimal band presentation for it.
 In this chapter we examine this approach from a complexity theory perspective.
 
-\section{Decision Problems}
+\section{Decision problems}
 
 \begin{definition}
     A function $f$ is \textbf{computable}, if there exists an algorithm 
@@ -2350,7 +2350,7 @@ With this fact in mind, we will focus our complexity results on the band present
 as rank follows.
 We naturally want to know how difficult it is and whether it's computable at all.
 
-\section{The Naive Search}
+\section{The naive search}
 
 \label{naiive-search}
 
@@ -2399,7 +2399,7 @@ The existence of a such an algorithm proves:
     For a given braid group order $n$ and number of bands $k$, $BA(n, k)$ is \textit{semi-decidable}.
 \end{proposition}
 
-\section{Comparison with Halting Problem}
+\section{Comparison with the halting problem}
 
 Being semi-decidable tells us some useful information, but we might hope for a better classification.
 For one, it's not useful for proving a band presentation is actually minimal,
@@ -2592,7 +2592,7 @@ However, the algorithm is overall the same structure and has the same complexity
 In particular, it only terminates on affirmative results
 and runs forever otherwise. 
 
-\section{Analysis of Naive Search}
+\section{Analysis of naive search}
 
 In the naive search we generate every band word and try every different way to put them together.
 This is incredibly inefficient.
@@ -2628,7 +2628,7 @@ to the number of iterations.
 However, straightforward optimization cannot overcome this issue alone.
 Rather, we need a way to reduce the set of possible solutions in the first place.
 
-\section{Enumerating Braids}
+\section{Enumerating braids}
 
 Clearly there are far more distinct words than distinct braids,
 due to the braid relations.
@@ -2657,7 +2657,7 @@ This algorithm is $O(n \log(n))$ in the worst case.
 In order to sort, we need a total ordering on braids that can be computed efficiently.
 We have successfully used the Dehornoy ordering, which was sufficiently fast for this purpose.
 
-\section{Templated Search}
+\section{Templated search}
 
 Even though we don't know how to enumerate braids,
 we can do better at \textit{enumerating band presentations},
@@ -2793,7 +2793,7 @@ Ideally it will increase with the rank
 and number of strands, to counteract the increase
 in the number of band presentations.
 
-\section{Permutation Templates}
+\section{Permutation templates}
 
 We will now make this concrete by considering specific quotients.
 We will start with the symmetric group and the homomorphism $\phi \colon B_{n} \rightarrow S_{n}$
@@ -2919,7 +2919,7 @@ This is a good speedup factor\footnote{This is a conservative estimate because c
 But the assumption that braid permutations are evenly distributed,
 doesn't actually hold. Empirically, they appear to distribute very close to evenly though.
 
-\section{Exponential Sum Templates}
+\section{Exponential sum templates}
 
 The next obvious quotient to consider is the exponential sum.
 The image of a band under $\gamma$ is just $1$ or $-1$ depending
@@ -3010,7 +3010,7 @@ Unlike permutations, the signs of braids are evenly distributed.
     (Plotted continuously with the $\Gamma$ function.)
 \end{figure}
 
-\section{Signed Permutation Templates}
+\section{Signed permutation templates}
 
 The exponential sum seems less useful as it only
 partitions the bands into $2$ buckets.
@@ -3044,7 +3044,7 @@ the runtime from naive search by a factor of $8$.
     (Plotted continuously with the $\Gamma$ function.)
 \end{figure}
 
-\section{Implementation Notes}
+\section{Implementation notes}
 
 Several steps of Algorithm \ref{alg:templated-search} describe how to generate sets. 
 Sometimes these sets are very large and care should be
@@ -3053,7 +3053,7 @@ In our implementation we chose to
 generate all the templates and bands beforehand,
 and then to only enumerate the various band presentations.
 
-\subsection{Parallelization/Threading}
+\subsection{Parallelization/threading}
 
 Sorting and merging to remove duplicates from each band
 bucket can be done in parallel.
@@ -3076,7 +3076,7 @@ The words from the buckets must be pulled into the cache in order to do their wo
 Thus, a lot of the time would be spent waiting for data to arrive, instead of 
 performing computations
 
-\section{Example of Computation}
+\section{Example of computation}
 
 Recall the braid which our upper bound algorithm
 could not solve: $x = \inv{2} \inv{2} 1 \inv{2} 1$ (see example \ref{ex:does-not-solve}).
@@ -3132,14 +3132,15 @@ can be found at the GitHub page: \url{https://github.com/justinmeiners/braid-ran
 This appendix includes a selection of generally useful algorithms
 that are self contained and concise.
 
-\section{Rank in the Free Group}
+\section{Rank in the free group}
 \label{free-rank-code}
-
 \begin{singlespace}
+\small
     \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/free-rank.lisp}
-\end{singlespace}
 
-\section{Rank Upper Bound in the Braid Group}
+\normalsize
+\end{singlespace}
+\section{Rank upper bound in the braid group}
 
 The \textbf{identity-p} function used in this sample
 is not included.
@@ -3150,10 +3151,12 @@ Several implementations can be found on the GitHub page.
 \label{braid-rank-code}
 
 \begin{singlespace}
+\small
     \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/braid-rank.lisp}
+\normalsize
 \end{singlespace}
 
-\chapter{Table of Computed Knot Results}
+\chapter{Table of Knot Results}
 
 \label{knotinfo-table} 
 
@@ -3180,9 +3183,8 @@ The properties listed are the following:
             Our method may offer a simpler alternative.
 \end{itemize}
 
-\small
 \begin{singlespace}
-
+\small
 \begin{center}
 \begin{longtable}{ | l | l | c | c | c | c | c | l |}
     \hline
@@ -3192,10 +3194,8 @@ The properties listed are the following:
     \hline 
 \end{longtable}
 \end{center}
-
-\end{singlespace}
 \normalsize
-
+\end{singlespace}
 According to KnotInfo, whether the knots \textbf{12n512} and \textbf{12n239}
 are quasipositive is unknown.
 Using our bounds method we found both have rank in $\{ 5, 7 \}$.
