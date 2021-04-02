@@ -1494,7 +1494,7 @@ This next section makes the notion of "optimal choices" precise and proves
 \section{Optimal splitting and conjugating}
 
 \begin{definition}
-    Let $W_{n}$ be the set of finite strings on a set of $n$ letters $\{ t_{1}, \ldots, t_{n} \}$ 
+    Let $W_{n}$ be the set of finite strings on a set of $n$ positive letters $\{ t_{1}, \ldots, t_{n} \}$ 
     and their inverses $\{ t_{1}^{-1}, \ldots, t_{n}^{-1} \}$
     including the empty string.
     Elements of $W_{n}$ are called \textbf{strings (on $n$-generators)}.
@@ -1536,7 +1536,7 @@ application has been chosen in proofs.
     $\rho$ and $C$ terminate for all inputs because each recursive call reduces the length of the input
     by one or more.
 
-    For a single generator $s$, $\rho(s) = 1$.
+    For a single letter $s$, $\rho(s) = 1$.
     For larger words $\rho$ does nothing more than apply splitting (Proposition \ref{splitting}) and conjugation (Proposition \ref{conjugating}) in a structured order.
     Each of these relationships preserves upper bounds.
 \end{proof}
@@ -1642,7 +1642,7 @@ of leaves in the tree $T$ having nonempty labels.
     If $v$ is a split node with children $w$ and $u$
     then $L(U_{v}) = L(U_{w}) + L(U_{u})$.
     If $v$ is a conjugate node with child $v'$
-    then $L(U_{v}) = L(U_{v'})$ .
+    then $L(U_{v}) = L(U_{v'})$.
     The function $\rho$ is defined by the same recursive
     relationships as $L$, but is defined to be the minimal
     such way to apply them.
@@ -1689,7 +1689,7 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{proof}
     First note that split nodes can be associated.
-    Suppose $u,v,w \in W_{n}$  and $uvw$ has an expression tree with children $uv$ and $w$,
+    Suppose $u,v,w \in W_{n}$  and $uvw$ has an expression tree with children $uv$ and $w$
     where $uv$ is a split node with children $u$ and $v$.
     Then we can make a new expression tree by placing $u$ and $vw$ as children of $uvw$,
     and $v$ and $w$ as children of $vw$.
