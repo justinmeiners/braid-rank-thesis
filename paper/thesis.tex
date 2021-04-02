@@ -1679,7 +1679,7 @@ of leaves in the tree $T$ having nonempty labels.
     \label{prop:reorder-tree}
     Suppose $T$ is an optimal tree for
     $w = \cdots v_{1}v_{2} \cdots$
-    containing $v_{1}$ and $v_{2}$ as nodes.
+    containing nodes with labels $v_{1}, v_{2} \in W_{n}$.
     Then there exists an optimal tree $T'$
     for $w$ with a split node $v_{1}v_{2}$
     and it's children are $v_{1}$ and $v_{2}$.
@@ -1687,11 +1687,10 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{proof}
     First note that split nodes can be associated.
-    If $uvw$ has children $uv$ and $w$
+    Suppose $uvw$ has children $uv$ and $w$,
     and $uv$ is a split node with children $u$ and $v$.
-    Then we can make a new expression
-    tree by letting $uvw$ have children $u$ and $vw$
-    and making children of $vw$ $v$ and $w$.
+    then we can make a new expression tree by placing $u$ and $vw$ as children of $uvw$,
+    and $v$ and $w$ as children of $vw$.
     Any nodes descending from $u$, $v$, and $w$ are unchanged (see Figure \ref{fig:expression-tree}).
 
     \begin{figure}[h]
@@ -1704,16 +1703,18 @@ of leaves in the tree $T$ having nonempty labels.
 
     Every ancestor of $v_{1}$ contains $v_{1}$ as a subword.
     So the first common ancestor $v$ of $v_{1}$ and $v_{2}$
-    is labeled  $w_{1}v_{1}v_{2}w_{2}$.
+    is labeled  $w_{1}v_{1}v_{2}w_{2}$ for some subwords $w_{1}$ and $w_{2}$ of $w$.
     If $w_{1}$ and $w_{2}$ are empty, then we are done.
 
     Otherwise let $p$ be the parent of $v_{1}$.
-    It cannot be a conjugate node,
-    otherwise it's parent would not contain $v_{1}$.
-    If it is a split node, it must be of the form
-    $u_{1} v_{1}$ where $u_{1}$ is a subword of $w$,
-    otherwise $v_{1}$ and $v_{2}$
-    would not be adjacent in the original word.
+    Suppose $p$ is a conjugate node.
+    Then $p$ must be labeled $sv_{1}s^{-1}$ for some letter $s$, but there are
+    no letters between $v_{1}$ and $v_{2}$
+    in their ancestors.
+    Therefore $p$ cannot be a conjugate note.
+
+    Then $p$ must be a split node of the form
+    $u_{1} v_{1}$ where $u_{1}$ is a subword of $w$.
     Similarly the parent of $v_{2}$ is $v_{2} u'_{1}$.
     Continuing up each ancestor to $v$
     we find $w_{1} = u_{k} \cdots u_{1}$ and
@@ -1739,7 +1740,7 @@ of leaves in the tree $T$ having nonempty labels.
     in exactly one leaf node,
     or it appears at the beginning
     or end of exactly one conjugate node:
-    $s_{i}ws_{i}^{-1}$ (or swap $s_{i}$ and $s_{i}^{-1}$)
+    $s_{i}ws_{i}^{-1}$ (or swap $s_{i}$ and $s_{i}^{-1}$).
 \end{proposition}
 
 \begin{proof}
