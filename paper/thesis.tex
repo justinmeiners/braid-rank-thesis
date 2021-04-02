@@ -293,7 +293,7 @@ the ribbon singularities can be carefully removed (see Proposition 1.4 of \cite{
 Therefore 
 \begin{equation}
     \label{eq:slice-and-ribbon-genus}
-    g_{s}(K) \leq g_{r}(K)
+    g_{s}(K) \leq g_{r}(K).
 \end{equation}
 
 \begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces}.)
@@ -3116,7 +3116,11 @@ presentations for $x$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \appendix changes the numbering of chapters and sections for appendices. Any chapters or 
 %% sections listed here will be treated as part of the appendix
+
+\newpage
 \appendix
+
+
 
 \chapter{Implementations of Selected Algorithms in Common Lisp}
 
@@ -3129,25 +3133,24 @@ This appendix includes a selection of generally useful algorithms
 that are self contained and concise.
 
 \section{Rank in the Free Group}
-
 \label{free-rank-code}
 
 \begin{singlespace}
-    \lstinputlisting[language=Lisp]{code/free-rank.lisp}
+    \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/free-rank.lisp}
 \end{singlespace}
 
 \section{Rank Upper Bound in the Braid Group}
 
 The \textbf{identity-p} function used in this sample
 is not included.
-This function is an implementation of one of the word problem solutions
-discussed in Chapter \ref{chap:word-problem}.
+This function should be an implementation of a word problem algorithm,
+such as one discussed in Chapter \ref{chap:word-problem}.
 Several implementations can be found on the GitHub page.
 
 \label{braid-rank-code}
 
 \begin{singlespace}
-    \lstinputlisting[language=Lisp]{code/braid-rank.lisp}
+    \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/braid-rank.lisp}
 \end{singlespace}
 
 \chapter{Table of Computed Knot Results}
