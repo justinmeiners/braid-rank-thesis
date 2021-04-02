@@ -1675,15 +1675,15 @@ of leaves in the tree $T$ having nonempty labels.
     Therefore $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
 \end{proof}
 
-\begin{proposition}
-    \label{prop:reorder-tree}
+\begin{lemma}
+    \label{lem:reorder-tree}
     Suppose $T$ is an optimal tree for
     $w = \cdots v_{1}v_{2} \cdots$
     containing nodes with labels $v_{1}, v_{2} \in W_{n}$.
     Then there exists an optimal tree $T'$
     for $w$ with a split node $v_{1}v_{2}$
     and it's children are $v_{1}$ and $v_{2}$.
-\end{proposition}
+\end{lemma}
 
 \begin{proof}
     First note that split nodes can be associated.
@@ -1732,8 +1732,8 @@ of leaves in the tree $T$ having nonempty labels.
     are $v_{1}v_{2}$ and $u'_{1} \cdots u'_{k}$.
 \end{proof}
 
-\begin{proposition}
-    \label{prop:letters-in-tree}
+\begin{lemma}
+    \label{lem:letters-in-tree}
     For a string $w = s_{1} \cdots s_{n} \in W_{n}$
     and an expression tree $T$,
     each letter $s_{i}$ (the specific letter at that index) appears
@@ -1741,7 +1741,7 @@ of leaves in the tree $T$ having nonempty labels.
     or it appears at the beginning
     or end of exactly one conjugate node:
     $s_{i}ws_{i}^{-1}$ (or swap $s_{i}$ and $s_{i}^{-1}$).
-\end{proposition}
+\end{lemma}
 
 \begin{proof}
     Every letter in a split node appears in
@@ -1764,7 +1764,7 @@ as $\xi(w)$ is derived from $w$ by repeatedly
 removing canceling pairs until none remain.
 
 Let $T$ be an optimal expression tree for $w$.
-Using Proposition \ref{prop:letters-in-tree}
+Using Lemma \ref{lem:letters-in-tree}
 we will enumerate all possible ways $s_{i}$
 and $s_{i+1}$ can appear in $T$.
 From their relative locations we will infer that $T$ contains
@@ -1785,7 +1785,7 @@ If we can show $\rho(v') \leq \rho(v)$
         $s_{i}$ and $s_{i+1}$ are removed by distinct conjugate nodes,
         and neither is a descendant of the other.
         Then $T$ contains $s_{i}^{-1} w_{1} s_{i}$ and $s_{i +1} w_{2} s_{i + 1}^{-1}$.
-        By Proposition \ref{prop:reorder-tree}
+        By Lemma \ref{lem:reorder-tree}
         $v = s_{i}^{-1} w_{1} s_{i}  s_{i +1} w_{2} s_{i + 1}^{-1}$
         and
         \[
@@ -1804,7 +1804,7 @@ If we can show $\rho(v') \leq \rho(v)$
         \]
    \item[Case 3:]
         $s_{i}$ and $s_{i + 1}$ are both leaves. 
-        By Proposition \ref{prop:reorder-tree}
+        By Lemma \ref{lem:reorder-tree}
          $v = s_{i}s_{i+1}$
          and 
          \[
@@ -1816,7 +1816,7 @@ If we can show $\rho(v') \leq \rho(v)$
     \item [Case 4:]
           $s_{i}$ is a leaf, $s_{i + 1}$ is removed by a conjugate node,
           and $s_{i}$ is not a descendant of $s_{i + 1}$.
-            By Proposition \ref{prop:reorder-tree}
+            By Lemma \ref{lem:reorder-tree}
             $v = s_{i} s_{i+1} w_{1} s_{i+1}^{-1}$
             and
             \[
