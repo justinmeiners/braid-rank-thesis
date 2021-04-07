@@ -8,9 +8,11 @@
 
 If you want to build the code you will
 need to install [sbcl][1] and [quicklisp][2].
-Once those are installed just run
+Once those are installed just run:
 
-    ./install.sh
+    ./install-deps.sh
+
+This installs all the libraries and symlinks it in the quicklisp projects folder.
 
 You can start an interactive session with
 
