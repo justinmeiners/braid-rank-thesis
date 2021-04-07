@@ -2,7 +2,7 @@
 
 [Read the paper][3].
 [View the slides summary][4]
-(also availble as a PDF in this repo.)
+(also available as a PDF in this repo.)
 
 ## Working with the Source Code
 
