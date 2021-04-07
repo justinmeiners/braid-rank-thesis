@@ -37,4 +37,4 @@ Estimating the rank of a braid:
 [1]: http://www.sbcl.org
 [2]: https://www.quicklisp.org/beta/ 
 [3]: https://github.com/justinmeiners/braid-rank-thesis/raw/master/paper/thesis.pdf
-[4]: https://justinmeiners.github.io/braid-rank-thesis
+[4]: https://justinmeiners.github.io/braid-rank-thesis/
