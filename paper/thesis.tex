@@ -138,11 +138,13 @@ the operations we are working with
 are well-defined on braids, the brackets will sometimes be dropped.
 
 \begin{definition}
+    \begin{sloppypar}
     A \textbf{band presentation} for a braid $x$ is a tuple of bands $(\alpha_{1}\delta_{1}\alpha_{1}^{-1},
     \ldots, \alpha_{k}\delta_{k}\alpha_{k}^{-1}) \in B_{n}^{k}$
     of any length $k \in \N$,
     such that $\prod_{i=1}^{k} \alpha_{i} \delta_{i} \alpha_{i}^{-1}$
     where each $\delta_{i} \in \{ \sigma_{1}^{\pm} ,\ldots, \sigma_{n-1}^{\pm} \}$.
+    \end{sloppypar}
 \end{definition}
 
 Every generator is a band, simply by conjugating by the empty word.
@@ -291,7 +293,7 @@ the ribbon singularities can be carefully removed (see Proposition 1.4 of \cite{
 Therefore 
 \begin{equation}
     \label{eq:slice-and-ribbon-genus}
-    g_{s}(K) \leq g_{r}(K)
+    g_{s}(K) \leq g_{r}(K).
 \end{equation}
 
 \begin{proposition} (Section 5 of \cite{rudolph-braided-surfaces}.)
@@ -370,7 +372,7 @@ A bar over top will be used to indicate inverse, so $\sigma_{i}^{-1} = \inv{i}$.
 For example, $\sigma_{1}\sigma_{2}\sigma_{2}^{-1}$ will be written as
 $12\inv{2}$.
 
-\section{More about Rank}
+\section{More about rank}
 
 \begin{proposition} \cite{rudolph-braided-surfaces}
     \label{prop:same-conjugacy-class}
@@ -396,7 +398,7 @@ However, in practice we can shorten the conjugate lengths by using other generat
 When we consider the analogous rank problem in other groups,
 this proposition typically does not hold.
 
-\section{Lower bounds from Quotients}
+\section{Lower bounds from quotients}
 
 Braid groups are very complex and can be difficult to study directly.
 However, questions of interest can often be answered by looking
@@ -447,7 +449,7 @@ Because rank in $H$ gives the shortest such presentation, $rk_{H}(\phi(x)) \leq 
 To apply this fact, we want to find quotients
 where the rank can be computed easily.
 
-\section{Symmetric Group}
+\section{Symmetric group}
 
 \label{chap:symmetric-group}
 
@@ -642,7 +644,7 @@ For example $x = 1^{2k} \in B_{3}$ is Figure $\ref{fig:generator-squared}$ repea
 and has rank as large as desired, but is a pure braid.
 So $rk_{S_{3}}(x) = 0$, but $rk(x) = 2k$. 
 
-\section{Exponential Sum}
+\section{Exponential sum}
 
 We would like to find a quotient which captures
 the ``winding" overlooked by the permutation representation.
@@ -853,7 +855,7 @@ on the rank can be immediately improved for any braid
 representing $K$.\footnote{ KnotInfo\cite{knotinfo} cites a few examples,
 such as one based on the Homfly polynomial. }
 
-\section{Upper Bounds from Quotients}
+\section{Upper bounds from quotients}
 
 Just as we can consider the rank of elements in quotients of $B_{n}$
 we can also consider the rank in groups $G$ for which $B_{n}$ is a quotient.
@@ -904,7 +906,7 @@ Other useful groups could perhaps be
 formed by gradually adding in relations of the braid group 
 to the free group.
 
-\section{Rank Parity}
+\section{Rank parity}
 
 \begin{corollary}
     \label{cor:rank-parity}
@@ -937,7 +939,7 @@ to the free group.
 Given lower and upper bounds on rank,
 this fact cuts the possible values for the rank in half.
 
-\section{Examples of Computing Rank}
+\section{Examples of computing rank}
 
 The theorems we have proved are simple and straightforward,
 but already they provide us with great
@@ -1041,7 +1043,7 @@ It is included to record and justify the specific methods we use in our algorith
 Additionally, we hope it can help bridge the gap between the theory 
 and actual implementation of the code. 
 
-\section{Lawrence-Krammer Representation}
+\section{Lawrence-Krammer representation}
 
 The Lawrence-Krammer representation allows braid
 generators to be transformed into matrices,
@@ -1145,7 +1147,7 @@ it could represent $q$ and $t$ symbolically.
 The matrix entries would then be rational functions of $q$ and $t$ with integer
 coefficients, but this introduces its own overhead.
 
-\section{Action on the Free Group.}
+\section{Action on the free group.}
 
 \begin{proposition}
 \cite{action-on-free-group}
@@ -1249,7 +1251,7 @@ by a constant factor, the algorithm has complexity $O(l^{2}n)$.
 In practice we found it to be faster than Lawrence-Krammer
 in most every case, especially for long words (which is counterintuitive).
 
-\section{Dehornoy Handle Reduction}
+\section{Dehornoy handle reduction}
 
 Switching focus a bit,
 Dehornoy's handle reduction \cite{dehornoy}
@@ -1364,7 +1366,7 @@ and a word problem solution, in one algorithm.
 
 \iffalse
 
-\section{Automated Theorem Proving}
+\section{Automated theorem proving}
 
 Automated theorem proving systems based on term rewriting can be a useful way to implement goal
 oriented search algorithms in group theory and combinatorics.
@@ -1396,12 +1398,12 @@ In \cite{quasipositive-3-braids} Orekov describes
 an algorithm for detecting quasipositivity in the free group.
 Our method additionally solves this problem.
 
-\section{Inductive Structure of Rank}
+\section{Inductive structure of rank}
 
 Algorithms are often designed using mathematical induction.  
 A problem may at first appear intractable due to a large number of cases and variations.
 To solve it, one first considers how to divide up the problem into smaller instances.
-Assuming those smaller instances can be solved, can they be combined in a way to solve the a full problem?
+Assuming those smaller instances can be solved, can they be combined in a way to solve the full problem?
 If so, then a solution is complete, just recursively combine smaller solutions
 down to a trivial base case (see chapter 2.3 of \cite{clrs}).
 
@@ -1414,13 +1416,14 @@ or remove an entire band.
 If we weaken our desired result a bit, we can find an inductive relationship between 
 subwords and the rank of the full word.
 This is a straightforward observation:
-
 \begin{proposition}
+    \begin{sloppypar}
     If $w, v \in F_{n}$ have band presentations:
     $w = \prod_{i=1}^{n} g_{i} s_{i} g_{i}^{-1}$
     and $v = \prod_{i=1}^{m} h_{i} t_{i} h_{i}^{-1}$,
     then their product $(\prod_{i=1}^{n} g_{i} s_{i} g_{i}^{-1}) (\prod_{i=1}^{m} h_{i} t_{i} h_{i}^{-1})$
     gives a band presentation for $wv$.
+    \end{sloppypar}
 \end{proposition}
 
 \begin{corollary}
@@ -1488,13 +1491,13 @@ upper bound is actually equal to the rank.
 This next section makes the notion of "optimal choices" precise and proves
  its correctness.
 
-\section{Optimal Splitting and Conjugating}
+\section{Optimal splitting and conjugating}
 
 \begin{definition}
-    Let $W_{n}$ be the set of finite strings on a set of $n$ letters $\{ t_{1}, \ldots, t_{n} \}$ 
+    Let $W_{n}$ be the set of finite strings on a set of $n$ positive letters $\{ t_{1}, \ldots, t_{n} \}$ 
     and their inverses $\{ t_{1}^{-1}, \ldots, t_{n}^{-1} \}$
     including the empty string.
-    Members of $W_{n}$ are called \textbf{strings} on $n$-generators.
+    Elements of $W_{n}$ are called \textbf{strings (on $n$-generators)}.
 \end{definition}
 
 Forgetting the group structure on $F_{n}$,
@@ -1533,7 +1536,7 @@ application has been chosen in proofs.
     $\rho$ and $C$ terminate for all inputs because each recursive call reduces the length of the input
     by one or more.
 
-    For a single generator $s$, $\rho(s) = 1$.
+    For a single letter $s$, $\rho(s) = 1$.
     For larger words $\rho$ does nothing more than apply splitting (Proposition \ref{splitting}) and conjugation (Proposition \ref{conjugating}) in a structured order.
     Each of these relationships preserves upper bounds.
 \end{proof}
@@ -1544,13 +1547,13 @@ application has been chosen in proofs.
     satisfying the following constraints:
     \begin{itemize}
     \item The root node is labeled $w$.
-    \item If a node is labeled $v$ and length of $v$ is 1 or 0.
+    \item If a node is labeled $v$ and the length of $v$ is 1 or 0
     then it must be a leaf.
     \item Otherwise a node labeled $v$ must have exactly one
     or two children.
     \begin{itemize}
     \item If $v$ has one child $v'$ then $v = sv's^{-1}$ for some
-    generator $s$.
+   letter $s$.
             We call $v$ a \textbf{conjugate node}.
     \item If $v$ has two  children $w_{1}, w_{2}$ then $w = w_{1}w_{2}$
         and $w_{1}$ and $w_{2}$ must not be empty words.
@@ -1583,42 +1586,42 @@ of leaves in the tree $T$ having nonempty labels.
 \begin{definition}
     An expression tree $T$ for $w$
     is called \textbf{optimal}
-    if
-    for any other expression tree for $w$, say $T'$,
-    $L(T) \leq L(T')$.
+    if $L(T) \leq L(T')$
+    whenever $T'$ is any expression tree for $w$.
 \end{definition}
 
 \begin{proposition}
     \label{prop:replace-node}
     Suppose $w = w_{1} v w_{2} \in W_{n}$
-    and $w' = w_{1} v' w_{2} \in W_{n}$
-    and $v'$ has an expression tree $U'$.
-    If $T$ is an expression tree
-    for $w$ and $v$ is a node with subtree $U$,
+    and $w' = w_{1} v' w_{2} \in W_{n}$ where $w_{1}, w_{2}, v, v' \in W_{n}$.
+    If $v'$ has an expression tree $U'$,
+    $T$ is an expression tree for $w$,
+    and $v$ is a node with subtree $U$,
     then we can form an expression tree $T'$
-    for $w'$ where $ L(T) - L(T') = L(U') - L(U)$.
+    for $w'$ where $ L(T') - L(T) = L(U') - L(U)$.
 \end{proposition}
 
 \begin{proof}
-    Form $T'$ by replacing the subtree $U$ with $v'$s tree $U'$. 
-    Let $p$ be the parent for $v'$.
+    Form $T'$ by replacing the subtree $U$ with $U'$. 
+    If $v'$ has no parent then we are done.
+    Otherwise, let $p$ be the parent for $v'$.
     Suppose $p$ is a split node.
-    Then $p = w_{1} v$ or $p = w_{1} v$
-    and the other child for $p$ is $w_{1}$.
-    Assuming $v'$ has nonzero length, replace $p$ with $w_{1} v'$ or $v' w_{1}$.
+    Then for some subword $u$ of $w$, $p = u v$ or $p = v u$
+    and the other child of $p$ is $u$.
+    Assuming $v'$ has nonzero length, replace $p$ with $u v'$ or $v' u$.
     Otherwise $v'$ is an empty string.
     Remove the split node $p$
-    and replace it with its child $w_{1}$.
+    and replace it with its child $u$.
     Suppose $p$ is a conjugate node,
-    so $p = svs^{-1}$.
+    Then $p = svs^{-1}$ where $s$ is some letter.
     Replace $p$ with $sv's^{-1}$.
 
-    We can continue similar replacements for every ancestor of $v'$
+    We can continue, making similar replacements for every ancestor of $v'$
     to form $T'$.
     The resulting tree is an expression tree for $w'$.
     The leaves in $U$ were replaced with those in $U'$.
     All other leaves were unchanged.
-    Therefore $L(T) - L(T')  = L(U') -  L(U)$.
+    Therefore $L(T') - L(T)  = L(U') -  L(U)$.
 \end{proof}
 
 
@@ -1639,7 +1642,7 @@ of leaves in the tree $T$ having nonempty labels.
     If $v$ is a split node with children $w$ and $u$
     then $L(U_{v}) = L(U_{w}) + L(U_{u})$.
     If $v$ is a conjugate node with child $v'$
-    then $L(U_{v}) = L(U_{v'})$ .
+    then $L(U_{v}) = L(U_{v'})$.
     The function $\rho$ is defined by the same recursive
     relationships as $L$, but is defined to be the minimal
     such way to apply them.
@@ -1655,8 +1658,8 @@ of leaves in the tree $T$ having nonempty labels.
 
 \begin{corollary}
     \label{cor:tree-substitution}
-    Suppose $w_{1}vw_{2}$ has an optimal expression
-    tree $T$ containing $v$ as a node
+    If $w_{1}, w_{2}, v, v' \in W_{n}$,
+    $w_{1}vw_{2}$ has an optimal expression tree $T$ with a node labeled $v$,
     and $\rho(v') \leq \rho(v)$,
     then $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
 \end{corollary}
@@ -1668,29 +1671,28 @@ of leaves in the tree $T$ having nonempty labels.
     So we can form a new expression
     tree $T'$ by replacing 
     the subtree rooted at $v$
-    with $U$ and relabeling as in Proposition \ref{prop:replace-node}.
+    with $U'$ and relabeling as in Proposition \ref{prop:replace-node}.
     The result is an expression tree $T'$ for $w_{1}v'w_{2}$
     where $L(T') \leq L(T)$.
-    so $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$
+    Therefore $\rho(w_{1}v'w_{2}) \leq \rho(w_{1}vw_{2})$.
 \end{proof}
 
-\begin{proposition}
-    \label{prop:reorder-tree}
-    Suppose $T$ is an optimal tree for
+\begin{lemma}
+    \label{lem:reorder-tree}
+    If $T$ is an optimal tree for
     $w = \cdots v_{1}v_{2} \cdots$
-    containing $v_{1}$ and $v_{2}$ as nodes.
-    Then there exists an optimal tree $T'$
-    for $w$ with a split node $v_{1}v_{2}$
-    and it's children are $v_{1}$ and $v_{2}$.
-\end{proposition}
+    containing nodes with labels $v_{1}, v_{2} \in W_{n}$,
+    then there exists an optimal tree $T'$
+    for $w$ with a split node $v_{1}v_{2}$,
+    and its children are $v_{1}$ and $v_{2}$.
+\end{lemma}
 
 \begin{proof}
     First note that split nodes can be associated.
-    If $uvw$ has children $uv$ and $w$
-    and $uv$ is a split node with children $u$ and $v$.
-    Then we can make a new expression
-    tree by letting $uvw$ have children $u$ and $vw$
-    and making children of $vw$ $v$ and $w$.
+    Suppose $u,v,w \in W_{n}$  and $uvw$ has an expression tree with children $uv$ and $w$
+    where $uv$ is a split node with children $u$ and $v$.
+    Then we can make a new expression tree by placing $u$ and $vw$ as children of $uvw$,
+    and $v$ and $w$ as children of $vw$.
     Any nodes descending from $u$, $v$, and $w$ are unchanged (see Figure \ref{fig:expression-tree}).
 
     \begin{figure}[h]
@@ -1703,16 +1705,18 @@ of leaves in the tree $T$ having nonempty labels.
 
     Every ancestor of $v_{1}$ contains $v_{1}$ as a subword.
     So the first common ancestor $v$ of $v_{1}$ and $v_{2}$
-    is labeled  $w_{1}v_{1}v_{2}w_{2}$.
+    is labeled  $w_{1}v_{1}v_{2}w_{2}$ for some subwords $w_{1}$ and $w_{2}$ of $w$.
     If $w_{1}$ and $w_{2}$ are empty, then we are done.
 
     Otherwise let $p$ be the parent of $v_{1}$.
-    It cannot be a conjugate node,
-    otherwise it's parent would not contain $v_{1}$.
-    If it is a split node, it must be of the form
-    $u_{1} v_{1}$ where $u_{1}$ is a subword of $w$,
-    otherwise $v_{1}$ and $v_{2}$
-    would not be adjacent in the original word.
+    Suppose $p$ is a conjugate node.
+    Then $p$ must be labeled $sv_{1}s^{-1}$ for some letter $s$, but there are
+    no letters between $v_{1}$ and $v_{2}$ in the word $w$
+    and any splitting up of $v_{2}$ can only occur in its descendants.
+    Therefore $p$ cannot be a conjugate node.
+
+    Then $p$ must be a split node of the form
+    $u_{1} v_{1}$ where $u_{1}$ is a subword of $w$.
     Similarly the parent of $v_{2}$ is $v_{2} u'_{1}$.
     Continuing up each ancestor to $v$
     we find $w_{1} = u_{k} \cdots u_{1}$ and
@@ -1730,16 +1734,16 @@ of leaves in the tree $T$ having nonempty labels.
     are $v_{1}v_{2}$ and $u'_{1} \cdots u'_{k}$.
 \end{proof}
 
-\begin{proposition}
-    \label{prop:letters-in-tree}
+\begin{lemma}
+    \label{lem:letters-in-tree}
     For a string $w = s_{1} \cdots s_{n} \in W_{n}$
     and an expression tree $T$,
     each letter $s_{i}$ (the specific letter at that index) appears
     in exactly one leaf node,
     or it appears at the beginning
     or end of exactly one conjugate node:
-    $s_{i}ws_{i}^{-1}$ (or swap $s_{i}$ and $s_{i}^{-1}$)
-\end{proposition}
+    $s_{i}ws_{i}^{-1}$ (or swap $s_{i}$ and $s_{i}^{-1}$).
+\end{lemma}
 
 \begin{proof}
     Every letter in a split node appears in
@@ -1762,7 +1766,7 @@ as $\xi(w)$ is derived from $w$ by repeatedly
 removing canceling pairs until none remain.
 
 Let $T$ be an optimal expression tree for $w$.
-Using Proposition \ref{prop:letters-in-tree}
+Using Lemma \ref{lem:letters-in-tree}
 we will enumerate all possible ways $s_{i}$
 and $s_{i+1}$ can appear in $T$.
 From their relative locations we will infer that $T$ contains
@@ -1783,7 +1787,7 @@ If we can show $\rho(v') \leq \rho(v)$
         $s_{i}$ and $s_{i+1}$ are removed by distinct conjugate nodes,
         and neither is a descendant of the other.
         Then $T$ contains $s_{i}^{-1} w_{1} s_{i}$ and $s_{i +1} w_{2} s_{i + 1}^{-1}$.
-        By Proposition \ref{prop:reorder-tree}
+        By Lemma \ref{lem:reorder-tree}
         $v = s_{i}^{-1} w_{1} s_{i}  s_{i +1} w_{2} s_{i + 1}^{-1}$
         and
         \[
@@ -1802,7 +1806,7 @@ If we can show $\rho(v') \leq \rho(v)$
         \]
    \item[Case 3:]
         $s_{i}$ and $s_{i + 1}$ are both leaves. 
-        By Proposition \ref{prop:reorder-tree}
+        By Lemma \ref{lem:reorder-tree}
          $v = s_{i}s_{i+1}$
          and 
          \[
@@ -1814,7 +1818,7 @@ If we can show $\rho(v') \leq \rho(v)$
     \item [Case 4:]
           $s_{i}$ is a leaf, $s_{i + 1}$ is removed by a conjugate node,
           and $s_{i}$ is not a descendant of $s_{i + 1}$.
-            By Proposition \ref{prop:reorder-tree}
+            By Lemma \ref{lem:reorder-tree}
             $v = s_{i} s_{i+1} w_{1} s_{i+1}^{-1}$
             and
             \[
@@ -1938,7 +1942,7 @@ To verify that all cases have been considered see Figure \ref{fig:case-analysis}
     By Proposition \ref{upper-bounds} we have equality.
 \end{proof}
 
-\section{Dynamic Programming Algorithm}
+\section{Dynamic programming algorithm}
 
 In \cite{quasipositive-3-braids} Orekov describes and an algorithm
 for detecting positive bands by ``plucking" generators out of a string.
@@ -2023,7 +2027,7 @@ To demonstrate it's effectiveness we use it in an empirical
 test of recognizing quasipositive braids and knots for which their ribbon genus
 and slice genus coincide
 
-\section{Identifying Solvable Subwords}
+\section{Identifying solvable subwords}
 
 The basic relationships used to construct the algorithm for chapter 4 hold for braid
 groups as well, where their proofs are the same.
@@ -2073,7 +2077,7 @@ Let $w = s_{1} \ldots s_{m}$. Define
 where each $M_{i}$ is some special
 case we can improve upon, just as the conjugacy rule $C$ was applied in the free group.
 
-\section{Identifying Conjugate Words}
+\section{Identifying conjugate words}
 
 Our first heuristic for improvement is to focus less on individual generators in the representation
 and more on the structure of the braids.
@@ -2111,7 +2115,7 @@ Choosing the longest is somewhat of a heuristic.
 There could possibly be a better choice which would lead to an overall smaller result for $\rho'$,
 but theoretically it's supported by the fact that rank is a conjugacy invariant,
 
-\section{Commuting Words}
+\section{Commuting words}
 
 The free group does not have any commuting relations,
 but the braid group does.
@@ -2169,7 +2173,7 @@ the algorithm to a particularly challenging braid.
 Subwords of interest can be analyzed on paper, or using our later search algorithms.
 Improvements in those parts would in turn improve the rank estimate.
 
-\section{Example of a Word it Does Not Solve}
+\section{Example of a word it does not solve}
 
 The special cases we have reviewed for $\rho'$ greatly improve the rank upper bounds
 for braids in comparison with $\rho$ for the free group.
@@ -2202,7 +2206,7 @@ there is no obvious pattern, like in the free group.
 Inserting a seemingly unrelated identity word
 and applying some relations gave a better rank estimate.
 
-\section{Testing Against KnotInfo Database}
+\section{Testing against KnotInfo database}
 \begin{sloppypar}
 To test the effectiveness of our bounding methods,
 we applied them to the KnotInfo database \cite{knotinfo} which contains invariants and properties for 2977 knots.
@@ -2273,7 +2277,7 @@ An alternative approach to the problem is to ignore facts about the specific rep
 of the braid word, and instead try to generate a minimal band presentation for it.
 In this chapter we examine this approach from a complexity theory perspective.
 
-\section{Decision Problems}
+\section{Decision problems}
 
 \begin{definition}
     A function $f$ is \textbf{computable}, if there exists an algorithm 
@@ -2345,7 +2349,7 @@ With this fact in mind, we will focus our complexity results on the band present
 as rank follows.
 We naturally want to know how difficult it is and whether it's computable at all.
 
-\section{The Naive Search}
+\section{The naive search}
 
 \label{naiive-search}
 
@@ -2394,7 +2398,7 @@ The existence of a such an algorithm proves:
     For a given braid group order $n$ and number of bands $k$, $BA(n, k)$ is \textit{semi-decidable}.
 \end{proposition}
 
-\section{Comparison with Halting Problem}
+\section{Comparison with the halting problem}
 
 Being semi-decidable tells us some useful information, but we might hope for a better classification.
 For one, it's not useful for proving a band presentation is actually minimal,
@@ -2587,7 +2591,7 @@ However, the algorithm is overall the same structure and has the same complexity
 In particular, it only terminates on affirmative results
 and runs forever otherwise. 
 
-\section{Analysis of Naive Search}
+\section{Analysis of naive search}
 
 In the naive search we generate every band word and try every different way to put them together.
 This is incredibly inefficient.
@@ -2623,7 +2627,7 @@ to the number of iterations.
 However, straightforward optimization cannot overcome this issue alone.
 Rather, we need a way to reduce the set of possible solutions in the first place.
 
-\section{Enumerating Braids}
+\section{Enumerating braids}
 
 Clearly there are far more distinct words than distinct braids,
 due to the braid relations.
@@ -2652,7 +2656,7 @@ This algorithm is $O(n \log(n))$ in the worst case.
 In order to sort, we need a total ordering on braids that can be computed efficiently.
 We have successfully used the Dehornoy ordering, which was sufficiently fast for this purpose.
 
-\section{Templated Search}
+\section{Templated search}
 
 Even though we don't know how to enumerate braids,
 we can do better at \textit{enumerating band presentations},
@@ -2788,7 +2792,7 @@ Ideally it will increase with the rank
 and number of strands, to counteract the increase
 in the number of band presentations.
 
-\section{Permutation Templates}
+\section{Permutation templates}
 
 We will now make this concrete by considering specific quotients.
 We will start with the symmetric group and the homomorphism $\phi \colon B_{n} \rightarrow S_{n}$
@@ -2914,7 +2918,7 @@ This is a good speedup factor\footnote{This is a conservative estimate because c
 But the assumption that braid permutations are evenly distributed,
 doesn't actually hold. Empirically, they appear to distribute very close to evenly though.
 
-\section{Exponential Sum Templates}
+\section{Exponential sum templates}
 
 The next obvious quotient to consider is the exponential sum.
 The image of a band under $\gamma$ is just $1$ or $-1$ depending
@@ -3005,7 +3009,7 @@ Unlike permutations, the signs of braids are evenly distributed.
     (Plotted continuously with the $\Gamma$ function.)
 \end{figure}
 
-\section{Signed Permutation Templates}
+\section{Signed permutation templates}
 
 The exponential sum seems less useful as it only
 partitions the bands into $2$ buckets.
@@ -3039,7 +3043,7 @@ the runtime from naive search by a factor of $8$.
     (Plotted continuously with the $\Gamma$ function.)
 \end{figure}
 
-\section{Implementation Notes}
+\section{Implementation notes}
 
 Several steps of Algorithm \ref{alg:templated-search} describe how to generate sets. 
 Sometimes these sets are very large and care should be
@@ -3048,7 +3052,7 @@ In our implementation we chose to
 generate all the templates and bands beforehand,
 and then to only enumerate the various band presentations.
 
-\subsection{Parallelization/Threading}
+\subsection{Parallelization/threading}
 
 Sorting and merging to remove duplicates from each band
 bucket can be done in parallel.
@@ -3071,7 +3075,7 @@ The words from the buckets must be pulled into the cache in order to do their wo
 Thus, a lot of the time would be spent waiting for data to arrive, instead of 
 performing computations
 
-\section{Example of Computation}
+\section{Example of computation}
 
 Recall the braid which our upper bound algorithm
 could not solve: $x = \inv{2} \inv{2} 1 \inv{2} 1$ (see example \ref{ex:does-not-solve}).
@@ -3111,7 +3115,11 @@ presentations for $x$:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% \appendix changes the numbering of chapters and sections for appendices. Any chapters or 
 %% sections listed here will be treated as part of the appendix
+
+\newpage
 \appendix
+
+
 
 \chapter{Implementations of Selected Algorithms in Common Lisp}
 
@@ -3123,26 +3131,27 @@ can be found at the GitHub page: \url{https://github.com/justinmeiners/braid-ran
 This appendix includes a selection of generally useful algorithms
 that are self contained and concise.
 
-\section{Rank in the Free Group}
-
+\section{Rank in the free group}
 \label{free-rank-code}
-
 \begin{singlespace}
-    \lstinputlisting[language=Lisp]{code/free-rank.lisp}
+\small
+    \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/free-rank.lisp}
+
+\normalsize
 \end{singlespace}
+\section{Rank upper bound in the braid group}
 
-\section{Rank Upper Bound in the Braid Group}
-
-The \textbf{identity-p} function used in this sample
-is not included.
-This function is an implementation of one of the word problem solutions
-discussed in Chapter \ref{chap:word-problem}.
+The definition of \textbf{identity-p} is not included in this sample.
+It should be an implementation of a word problem algorithm,
+such as one from Chapter \ref{chap:word-problem}.
 Several implementations can be found on the GitHub page.
 
 \label{braid-rank-code}
 
 \begin{singlespace}
-    \lstinputlisting[language=Lisp]{code/braid-rank.lisp}
+\small
+    \lstinputlisting[language=Lisp, xleftmargin=2em, numbers=left]{code/braid-rank.lisp}
+\normalsize
 \end{singlespace}
 
 \chapter{Table of Computed Knot Results}
@@ -3172,9 +3181,8 @@ The properties listed are the following:
             Our method may offer a simpler alternative.
 \end{itemize}
 
-\small
 \begin{singlespace}
-
+\small
 \begin{center}
 \begin{longtable}{ | l | l | c | c | c | c | c | l |}
     \hline
@@ -3184,10 +3192,8 @@ The properties listed are the following:
     \hline 
 \end{longtable}
 \end{center}
-
-\end{singlespace}
 \normalsize
-
+\end{singlespace}
 According to KnotInfo, whether the knots \textbf{12n512} and \textbf{12n239}
 are quasipositive is unknown.
 Using our bounds method we found both have rank in $\{ 5, 7 \}$.

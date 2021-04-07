@@ -1,4 +1,4 @@
-personal_ws-1.1 en 88 
+personal_ws-1.1 en 90 
 BYU
 Bd
 Cayley
@@ -71,6 +71,7 @@ subtree
 subword
 subwords
 surjective
+sv
 sv's
 svs
 sws
@@ -86,4 +87,5 @@ vwa
 vwv
 ws
 wv
+xleftmargin
 xy
