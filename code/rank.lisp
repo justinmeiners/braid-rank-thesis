@@ -5,6 +5,7 @@
         band-pair
         band-sign
         upper-bound
+        upper-bound-generate
         lower-bound
         lower-bound-from-genus
         positive-band-count))
@@ -30,25 +31,25 @@
 
 
 (defun find-conjugate (braid)
-  (let* ((N (length braid))
-         (best N)
+  (let* ((n (length braid))
+         (best n)
          (start 0)
-         (end N))
-    (loop for i from 0 below N do
-          (loop for j from i to N do
-                (when (braid:identityp (nconc (subseq braid 0 i)
-                                        (subseq braid j)))
-                  (when (< (- j i) best) 
+         (end n))
+    (loop for i from 0 below n do
+          (loop for j from i to n do
+                (when (and (< (- j i) best)
+                       (braid:identityp (nconc (subseq braid 0 i)
+                                        (subseq braid j))))
                     (setf best (- j i))
                     (setf start i)
-                    (setf end j)))
-
+                    (setf end j))
                 ))
     (values start end)))
 
 (defun upper-bound-part (braid start end memo)
   (let ((part (subseq braid start end))
         (N (- end start)))
+
     (multiple-value-bind (i j)
       (find-conjugate part)
       (min 
@@ -56,11 +57,10 @@
         (if (< (- j i) N)
             (funcall memo (+ start i) (+ start j))
             N)
-
         (loop for k from (+ start 1) below end minimize 
               (+ (funcall memo start k)
-                 (funcall memo k end))))
-      )))
+                 (funcall memo k end)))
+        ))))
 
 (defun upper-bound (braid)
   "rank upper bound: modified version of free group rank."
@@ -85,6 +85,63 @@
                       (upper-bound-part braid i (+ j 1) memo-lookup)))))
 
     (values (aref matrix 0 (- N 1)) matrix)))
+
+(defun upper-bound-part-2 (braid start end memo)
+  (let* ((part (subseq braid start end))
+         (N (- end start))
+         (best part)
+         (bestScore N))
+
+    (when (commutable-p part)
+      (setf best (list 'R part))
+      (setf bestScore (group:total-generators part)))
+
+    (multiple-value-bind (i j)
+        (find-conjugate part)
+      (when (< (- j i) N)
+        (let ((temp (funcall memo (+ start i) (+ start j))))
+          (when (< (car temp) bestScore)
+            (setf best (list 'C  (subseq braid start (+ start i)) (cdr temp)))
+            (setf bestScore (car temp))
+            ))))
+
+      (loop for k from (+ start 1) below end do
+            (let ((left (funcall memo start k))
+                  (right (funcall memo k end)))
+
+              (when (< (+ (car left) (car right)) bestScore)
+                (setf best (list 'S (cdr left) (cdr right)))
+                (setf bestScore (+ (car left) (car right)))
+                )
+              ))
+    (cons bestScore best)))
+
+(defun upper-bound-generate (braid)
+  "rank upper bound: modified version of free group rank."
+
+
+  (let* ((N (length braid))
+         (matrix (make-array (list N N)
+                             :initial-element (cons 0 '())))
+         (memo-lookup (lambda (start end)
+                        (if (= start end) 
+                            (cons 0 nil)
+                            (aref matrix start (- end 1)))))) 
+
+    (loop for i from 0 below N do
+          (setf (aref matrix i i) (cons 1 (elt braid i))))
+
+    (loop for length from 2 to N do
+          (do ((i 0 (+ i 1)))
+              ((> (+ i length) N) nil)
+
+              (let ((j (+ i (- length 1))))
+                (setf (aref matrix i j)
+                      (upper-bound-part-2 braid i (+ j 1) memo-lookup)))))
+
+    (values (aref matrix 0 (- N 1)) matrix)))
+
+
 
 (defun lower-bound (braid)
   (let ((sum (braid:algebraic-sum braid))

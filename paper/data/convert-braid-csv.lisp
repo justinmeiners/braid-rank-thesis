@@ -3,7 +3,8 @@
 (load "~/.sbclrc")
 (asdf:load-system "cl-csv")
 
-(defun split-delimiterp (c) (or (char= c #\Space) (char= c #\:) (char= c #\;)))
+(defun split-delimiterp (c)
+   (find c (list #\Space #\: #\; #\,)))
 
 (defun split-string (string &key (delimiterp #'split-delimiterp))
   (loop :for beg = (position-if-not delimiterp string)
